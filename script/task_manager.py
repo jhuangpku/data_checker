@@ -49,8 +49,8 @@ class DataSamplerManager(TaskManagerBase):
                 logging.warning("Init task with command [%s] failed because of [%s]" % (command, e))
                 raise e
             logging.info("Init task with command [%s] successful" % (command))
-            self._tasks.append(task)
-        
+            tasks.append(task)
+        return tasks    
     
 class TableCheckerManager(TaskManagerBase):
     "manager for table checker"
@@ -72,8 +72,8 @@ class TableCheckerManager(TaskManagerBase):
                 logging.warning("Init task with command [%s] failed because of [%s]" % (command, e))
                 raise e
             logging.info("Init task with command [%s] successful" % (command))
-            self._tasks.append(task)
-        
+            tasks.append(task)
+        return tasks
        
 class TableJoinCheckerManager(TaskManagerBase):
     "manager for table checker"
@@ -95,8 +95,8 @@ class TableJoinCheckerManager(TaskManagerBase):
                 logging.warning("Init task with command [%s] failed because of [%s]" % (command, e))
                 raise e
             logging.info("Init task with command [%s] successful" % (command))
-            self._tasks.append(task)
- 
+            tasks.append(task)
+        return task
 
 
 class TaskManagerBase(object):
@@ -192,7 +192,6 @@ class TaskManagerBase(object):
                                                 (str(args), class_name, module))
             logging.info("Check args [%s] for class_obj [%s] module [%s] successful" % \
                                                 (str(args), class_name, module))
-
 
         return process_manager
     
