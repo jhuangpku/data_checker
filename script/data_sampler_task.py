@@ -51,32 +51,16 @@ class DataSamplerTask(TaskBase):
 
         # 2. get info from task conf 
         try:
-            self._f_in_name  = self._task_conf.get_value_by_key("input_file")[0][0]
-            self._f_out_name = self._task_conf.get_value_by_key("output_file")[0][0]
-            self._ratio      = self._task_conf.get_value_by_key("ratio")[0][0]
-            self._sep        = self._task_conf.get_value_by_key("sep")[0][0]
-            self._encode     = self._task_conf.get_value_by_key("encode")[0][0]
-            self._decode     = self._task_conf.get_value_by_key("decode")[0][0]
+            self._f_in_name  = self.get_attribute("input_file",  self._json, str)
+            self._f_out_name = self.get_attribute("output_file", self._json, str)
+            self._ratio      = self.get_attribute("ratio",       self._json, "ratio")
+            self._sep        = self.get_attribute("sep",         self._json, str)
+            self._encode     = self.get_attribute("encode",      self._json, "code")
+            self._decode     = self.get_attribute("decode",      self._json, "code")
         except (KeyError, ValueError, TypeError) as e:
             raise DataSamplerTaskInitError("%s" % (e))
         
-        # 3. check argument
-        try:
-            self._ratio = float(self._ratio)
-        except TypeError as e:
-            raise DataSamplerTaskInitError("%s" % (e))
-
-        if self._ratio <= 0 or self._ratio > 1:
-            raise DataSamplerTaskInitError("sample_ratio [%lf] must be in (0, 1]" % (self._ratio))
-        
-        try:
-            "".encode(self._encode)
-            "".decode(self._decode)
-        except LookupError as e:
-            raise DataSamplerTaskInitError("%s" % (e))
-        
-        
-        # 4. init default args
+        # 3. init default args
         self._buf_size = 512
         self._stauts_infos.append(StatusInfo(self._task_name))
         

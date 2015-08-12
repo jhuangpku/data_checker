@@ -52,92 +52,43 @@ class TableJoinCheckerTask(TaskBase):
         
         # 2. get info from task conf
         try:
-            self._join_checker = self._task_conf.get_value_by_key("join_checker")[0][0]
+            self._join_checker = self.get_attribute("join_checker", self._json, str)
+            self._join_checker_args = self.get_attribute("join_checker_args", self._json, "args")
+            file_dics = self.get_attribute("files", self._json, list)
         except (KeyError, ValueError, TypeError) as e:
             raise TableJoinCheckerTaskInitError("%s" % (e))
         
-        try:
-            self._join_checker_args = self._task_conf.get_value_by_key("join_checker_args")[0]
-        except (KeyError, ValueError, TypeError) as e:
-            self._join_checker_args = None
-        
-        # 3. only support two files now
-        dics = []
-        try:
-            dic1 = self._task_conf.get_dict_by_key("1")
-            dic2 = self._task_conf.get_dict_by_key("2")
-        except KeyError:
-            raise TableJoinCheckerTaskInitError("%s" % (e))
-        dics.append(dic1)
-        dics.append(dic2)
-        
-        try:
-            self._files = [dic["filename"][0][0] for dic in dics]
-            self._fields = [dic["field"] for dic in dics]
-            self._decodes = [dic["decode"][0][0] for dic in dics]
-            self._seps = [dic["sep"][0][0] for dic in dics]
-            self._ratios = [dic["ratio"][0][0] for dic in dics]
-        except (KeyError, ValueError, TypeError) as e:
-            raise TableJoinCheckerTaskInitError("Init taskconf failed because of [%s]" % (e))
-        
-        for code in self._decodes: 
+        # 3. parser files
+        self._files = []
+        self._fields = []
+        self._decodes = []
+        self._seps = []
+        self._ratios = []
+        for file_dic in file_dics:
             try:
-                "".decode(code)
-            except LookupError as e:
-                raise TableJoinCheckerTaskInitError("%s" % (e))
+                file   = self.get_attribute("filename", file_dic, str)
+                fields = self.get_attribute("fields", file_dic, "fields")
+                decode = self.get_attribute("decode", file_dic, "code")
+                sep    = self.get_attribute("sep"   , file_dic, str)
+                ratio  = self.get_attribute("ratio", file_dic, "ratio")
+            except (KeyError, ValueError, TypeError) as e:
+                raise TableJoinCheckerTaskInitError("Init taskconf failed because of [%s]" % (e))
+            self._files.append(file)  
+            self._fields.append(fields)
+            self._decodes.append(decode)
+            self._seps.append(sep)
+            self._ratios.append(ratio)
         
-        for field in self._fields:
-            if len(field) == 0:
-                raise TableJoinCheckerTaskInitError("every item in fields must be a \
-                                                    list with length >= 1 [%s]" %(str(self._fields)))
-            try:
-                field[0] = int(field[0])
-            except TypeError as e:
-                raise TableJoinCheckerTaskInitError("%s" % (e))
-        
-        for r in self._ratios:
-            try:
-                r = float(r)
-            except TypeError:
-                raise TableJoinCheckerTaskInitErrorr("%s" % (e))
-            if r <= 0 or r > 1:
-                raise TableJoinCheckerTaskInitError("Invalid sample ratio [%lf]") % (r))
-
-
         self._status_infos.append(StatusInfo(self._join_checker))
 
 
     def get_process_name(self):
         """return process_name"""
         names = [["join_checker", self._join_checker, self._join_checker_args]]
-        for field in self._fields:
-            if len(field) == 2:
-                names.append(["preprocess", field[1], None])
-            elif len(field) == 3:
-                names.append(["preprocess", field[1], field[2]])
+        for fields in self._fields:
+            names.expend(fields.get_process_name))
         return names
 
-
-    def _get_values(self, process_manager, fields):
-        """
-        """
-        values = []
-        for field in fields:
-            n = len(field)
-            field_no = field[0]
-            value = cols[field_no]
-            args = None
-            if n >= 2:
-                try:
-                    preprocess_class = process_manager.locate("preprocess", field[1])
-                except ProcesserManagerLocateError as e:
-                    raise e
-                if n >= 3:
-                    args = field[2]
-                value = preprocess_class.preprocess(value, args)
-            values.append(value)
-        
-        return values
 
     def excute(self, process_manager):
         """
@@ -163,7 +114,7 @@ class TableJoinCheckerTask(TaskBase):
                 for line in f:
                     line = line.rstrip("\n").decode(self._decodes[0])
                     cols = line.split(self._seps[0])
-                    file_dic_key = self._get_values(process_manager, self._fields[0])
+                    file_dic_key = self._fields[0].get_values(process_manager, cols)
                     file_dic_key = tuple(file_dic_key)
                     file_dic[file_dic_key] = 0
         except IOError as e:
@@ -174,7 +125,7 @@ class TableJoinCheckerTask(TaskBase):
                 for line in f:
                     cols = line.rstrip("\n").split(self._seps[1])
                     try:
-                        file_dic_key = self._get_values(process_manager, self._fields[1])
+                        file_dic_key = self._fields[1].get_values(process_manager, cols)
                     except ProcesserManagerLocateError as e:
                         file_dic = {}
                         raise TableJoinCheckerTaskExcuteError("%s" % (e))

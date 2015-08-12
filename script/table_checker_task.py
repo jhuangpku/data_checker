@@ -33,7 +33,7 @@ class TableCheckerTaskExcuteError(TaskExcuteError):
 
 class TableCheckerSubTask(object):
     """sub task for the total task"""
-    def __init__(self, task_name, conf_dic):
+    def __init__(self, task_name, checker, args, fields):
         """init sub task
         
         Args:
@@ -41,44 +41,18 @@ class TableCheckerSubTask(object):
             task_name: task_name, str
         
         """
-        try:
-            self.col_checker = conf_dic["col_checker"][0][0]
-            self.fields = conf_dic["fields"]
-        except (KeyError, ValueError, TypeError) as e:
-            raise e 
-       
-        try:
-            self.col_checker_args = conf_dic["col_checker_args"][0]
-        except KeyError:
-            self.col_checker_args = None
-        
-        self.task_name = "Checker_no=%s checker=%s" % (task_name, self.col_checker)
-
-        # check arguments:
-        # [[field_no, process_fun, process_args],[]]
-        for field in self.fields:
-            if len(field) == 0:
-                raise ValueError("every item in fields must be a list with length >= 1 [%s]" \
-                                 % (str(self.fields)))
-            try:
-                field[0] = int(field[0])
-            except TypeError as e:
-                raise e
-
+        self.col_checker = checker
+        self.args = args
+        self.fields = fields
+            
     def get_process_name(self):
         """
         Get process name 
         """
-        names = []
-        names.append(["col_checker", self.col_checker, self.col_checker_args])
-        for field in self.fields:
-            if len(field) == 2:
-                names.append(["preprocess", field[1], None])
-            elif len(field) == 3:
-                names.append(["preprocess", field[1], field[2]])
+        names = self.fields.get_process_name()
+        names.append(["col_checker", self.col_checker, self.args])
         return names
 
-    
     
     def excute(self, process_manager, cols):
         """
@@ -98,25 +72,12 @@ class TableCheckerSubTask(object):
             table_checker = process_manager.locate("col_checker", self.col_checker)
         except ProcesserManagerLocateError as e:
             raise e
+        try:
+            values = self.fields.get_values()
+        except ProcesserManagerLocateError as e:
+            raise e
+        return table_checker.check(values, self.args)
         
-        values = []
-        for field in self.fields:
-            n = len(field)
-            field_no = field[0]
-            value = cols[field_no]
-            args = None
-            if n >= 2:
-                try:
-                    preprocess_class = process_manager.locate("preprocess", field[1])
-                except ProcesserManagerLocateError as e:
-                    raise e
-                if n >= 3:
-                    args = field[2]
-                value = preprocess_class.preprocess(value, args)
-            values.append(value)
-        
-        return table_checker.check(values, self.col_checker_args)
-
 
 class TableCheckerTask(TaskBase):
     """ task conf for table checker"""
@@ -131,37 +92,35 @@ class TableCheckerTask(TaskBase):
             TableCheckerTaskInitError
         """
         line = line.rstrip("\n")
-        # 1. load task conf
+        # 1. load json
         try:
             super(TaskBase, self).__init__(line) 
         except ValueError as e:
             raise TableCheckerTaskInitError("%s" % (e))
 
-        # 2. get info from task conf 
+        # 2. get info from json 
         try:
-            self._f_name = self._task_conf.get_value_by_key("filename")[0][0]
-            self._decode = self._task_conf.get_value_by_key("decode")[0][0]
-            self._col_cnt = int(self._task_conf.get_value_by_key("cnt")[0][0])
-            self._sep     = self._task_conf.get_value_by_key("sep")[0][0]
+            self._f_name  = self.get_attribute("filename", self._json, str)
+            self._decode  = self.get_attribute("decode",   self._json, "code")         
+            self._col_cnt = self.get_attribute("col_cnt",  self._json, int)
+            self._sep     = self.get_attribute("sep",      self._json, str)
+            sub_tasks = self.get_attribute("col_check_task", self._json, list)
         except (KeyError, ValueError, TypeError) as e:
             raise TableCheckerTaskInitError("%s" % (e))
         
-        try:
-            "".decode(self._decode)
-        except LookupError as e:
-            raise TableCheckerTaskInitError("%s" % (e))
-
         self._status_infos.append(StatusInfo("col_cnt_checker"))
-        # get sub_task
+        
+        # 3. get sub_task
         self._sub_tasks = []
-        sub_task_keys = self._task_conf.get_all_keys_with_dict()
-        for key in sub_task_keys:
-            sub_task_value = self._task_conf.get_dict_by_key(key)
+        for sub_task_dic in sub_tasks:
             try:
-                sub_task = TableCheckerSubTask(key, sub_task_value) 
+                checker = self.get_attribute("col_checker", sub_task_dic, str)
+                fields  = self.get_attribute("fields", sub_task_dic, "fields")
+                args    = self.get_attribute("args", sub_task_dic, "args")
             except (KeyError, ValueError, TypeError) as e:
-                raise TableCheckerTaskInitError("sub_task [%s] failed because of [%s]" \
-                                                % (str(sub_task_value), e))
+                raise TableCheckerTaskInitError("%s" % (e))
+            
+            sub_task = TableCheckerSubTask(str(sub_task_dic), checker, args, fields)
             self._sub_tasks.append(sub_task)
             self._status_infos.append(StatusInfo(sub_task.task_name))
 
