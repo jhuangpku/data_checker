@@ -174,10 +174,10 @@ class TableCheckerTask(TaskBase):
                             status_info.check_fail_cnt += 1
                             if len(status_info.check_fail_cnt < 10):
                                 status_info.fail_info.append([sub_task.task_name, line.rstrip("\n")])
-                
+                    
         except IOError as e:
-            raise TableCheckerTaskExcuteError("%s" % (e))
-        
+            raise TableCheckerTaskExcuteError("%s" % (e)) 
+            return 1
         self._if_success = True
         return 0
     

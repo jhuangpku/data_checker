@@ -118,7 +118,8 @@ class TaskManagerBase(object):
         try:
             self._status_file = open(status_file, "a")
         except IOError as e:
-            raise TaskManagerInitError("%s" % (e))
+            self._status_file = sys.stderr
+            #raise TaskManagerInitError("%s" % (e))
         
         # 2.init status_code
         self._status_encode = status_encode
