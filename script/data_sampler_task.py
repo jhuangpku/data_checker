@@ -108,10 +108,10 @@ class DataSamplerTask(TaskBase):
 
         # 2. get info from task conf 
         try:
-            self._f_in_name  = self.get_attribute("input_file",  self._json, str)
-            self._f_out_name = self.get_attribute("output_file", self._json, str)
+            self._f_in_name  = self.get_attribute("input_file",  self._json, unicode)
+            self._f_out_name = self.get_attribute("output_file", self._json, unicode)
             self._ratio      = self.get_attribute("ratio",       self._json, "ratio")
-            self._sep        = self.get_attribute("sep",         self._json, str)
+            self._sep        = self.get_attribute("sep",         self._json, unicode)
             self._encode     = self.get_attribute("encode",      self._json, "code")
             self._decode     = self.get_attribute("decode",      self._json, "code")
         except (KeyError, ValueError, TypeError) as e:
@@ -119,7 +119,7 @@ class DataSamplerTask(TaskBase):
         
         # 3. init default args
         self._buf_size = 512
-        self._stauts_infos.append(StatusInfo(self._task_name))
+        self._status_infos.append(StatusInfo(self._task_name))
         
         def excute(self, process_manager = None):
             """

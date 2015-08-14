@@ -206,7 +206,7 @@ def get_table_checker_commands(config, info_dics):
         json_dic["filename"] = info_dics[filename]["output_file"]
         json_dic["decode"] = info_dics[filename]["encode"]
         
-        if sep not in json_dic:
+        if "sep" not in json_dic:
             json_dic["sep"] = G_DEFAULT_ARGS["table_checker"]["sep"]
         
         try:
@@ -305,7 +305,7 @@ def get_data_sampler_commands(config):
         if "ratio" not in json_dic:
             json_dic["ratio"] = G_DEFAULT_ARGS["data_sampler"]["ratio"]
         try:
-            print json.dumps(json_dic)
+            #print json.dumps(json_dic)
             tmp = DataSamplerTask(json.dumps(json_dic))
         except DataSamplerTaskInitError as e:
             logging.fatal("%s" % (e))
@@ -344,8 +344,8 @@ def get_commands(task_file):
         logging.fatal("Check data_sampler when reading task_file failed [%s]" % (task_file))
         return None
     logging.info("Check data_sampler successful [%s]" % (task_file))
-    print data_sampler_commands
-    print data_sampler_dic
+    #print data_sampler_commands
+    #print data_sampler_dic
     # get table_checker task and check validation
     table_checker_commands = get_table_checker_commands(config, data_sampler_dic)
     if table_checker_commands is None:
@@ -422,7 +422,7 @@ def main(config_file, task_file, command_file):
 
     # read task_file and handler information 
     commands_list = get_commands(task_file)
-    print commands_list
+    #print commands_list
     if commands_list is None:
         logging.fatal("Get commands from [%s] failed" % (task_file))
         return 1

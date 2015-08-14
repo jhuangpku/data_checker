@@ -170,12 +170,6 @@ class TaskBase(object):
         self._time = time.strftime("%Y%m%d %H:%M:%S", time.localtime())
 
 
-
-#        try:
-#            self._task_conf = TaskConf(line)
-#        except ValueError as e:
-#            raise e
-
     def get_attribute(self, key, obj, value_type):
         """
         get attribute from obj and check validation according to value_type
@@ -199,10 +193,9 @@ class TaskBase(object):
             value = obj[key]
         except KeyError as e:
             raise e
-        
         if value_type == "ratio":
             try:
-                return self._get_ratio(self, value)
+                return self._get_ratio(value)
             except (TypeError, ValueError) as e:
                 raise e
         
@@ -308,7 +301,7 @@ class TaskBase(object):
     def __del__(self):
         """ delete """
         del self._task_name
-        del self._task_conf
+        del self._json
         for t in self._status_infos:
             del t
 

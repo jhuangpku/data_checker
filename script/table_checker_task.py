@@ -100,10 +100,10 @@ class TableCheckerTask(TaskBase):
 
         # 2. get info from json 
         try:
-            self._f_name  = self.get_attribute("filename", self._json, str)
+            self._f_name  = self.get_attribute("filename", self._json, unicode)
             self._decode  = self.get_attribute("decode",   self._json, "code")         
             self._col_cnt = self.get_attribute("col_cnt",  self._json, int)
-            self._sep     = self.get_attribute("sep",      self._json, str)
+            self._sep     = self.get_attribute("sep",      self._json, unicode)
             sub_tasks = self.get_attribute("col_check_task", self._json, list)
         except (KeyError, ValueError, TypeError) as e:
             raise TableCheckerTaskInitError("%s" % (e))
@@ -114,7 +114,7 @@ class TableCheckerTask(TaskBase):
         self._sub_tasks = []
         for sub_task_dic in sub_tasks:
             try:
-                checker = self.get_attribute("col_checker", sub_task_dic, str)
+                checker = self.get_attribute("col_checker", sub_task_dic, unicode)
                 fields  = self.get_attribute("fields", sub_task_dic, "fields")
                 args    = self.get_attribute("args", sub_task_dic, "args")
             except (KeyError, ValueError, TypeError) as e:

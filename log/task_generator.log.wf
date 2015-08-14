@@ -34,3 +34,27 @@ CRITICAL: 08-14 11:59:05: task_generator.py:428 * 140735084589824 Get commands f
 CRITICAL: 08-14 12:42:15: task_generator.py:311 * 140735084589824 value [./data/a.data.utf8] doesnot match Value_type [<type 'str'>]
 CRITICAL: 08-14 12:42:15: task_generator.py:344 * 140735084589824 Check data_sampler when reading task_file failed [conf/task.conf]
 CRITICAL: 08-14 12:42:15: task_generator.py:427 * 140735084589824 Get commands from [conf/task.conf] failed
+CRITICAL: 08-14 12:45:46: task_generator.py:311 * 140735084589824 value [./data/a.data.utf8] doesnot match Value_type [<type 'str'>]
+CRITICAL: 08-14 12:45:46: task_generator.py:344 * 140735084589824 Check data_sampler when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 12:45:46: task_generator.py:427 * 140735084589824 Get commands from [conf/task.conf] failed
+CRITICAL: 08-14 12:59:24: task_generator.py:311 * 140735084589824 value [./data/a.data.utf8] doesnot match Value_type [<type 'str'>]
+CRITICAL: 08-14 12:59:24: task_generator.py:344 * 140735084589824 Check data_sampler when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 12:59:24: task_generator.py:427 * 140735084589824 Get commands from [conf/task.conf] failed
+CRITICAL: 08-14 13:02:19: task_generator.py:311 * 140735084589824 value [./data/a.data.utf8] doesnot match Value_type [<type 'str'>]
+CRITICAL: 08-14 13:02:19: task_generator.py:344 * 140735084589824 Check data_sampler when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 13:02:19: task_generator.py:427 * 140735084589824 Get commands from [conf/task.conf] failed
+CRITICAL: 08-14 13:04:22: task_generator.py:311 * 140735084589824 _get_ratio() takes exactly 2 arguments (3 given)
+CRITICAL: 08-14 13:04:22: task_generator.py:344 * 140735084589824 Check data_sampler when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 13:04:22: task_generator.py:427 * 140735084589824 Get commands from [conf/task.conf] failed
+CRITICAL: 08-14 13:07:38: task_generator.py:311 * 140735084589824 _get_ratio() takes exactly 2 arguments (3 given)
+CRITICAL: 08-14 13:07:38: task_generator.py:344 * 140735084589824 Check data_sampler when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 13:07:38: task_generator.py:427 * 140735084589824 Get commands from [conf/task.conf] failed
+CRITICAL: 08-14 13:10:54: task_generator.py:215 * 140735084589824 value [./sample_data//a.data.utf8.sample] doesnot match Value_type [<type 'str'>]
+CRITICAL: 08-14 13:10:54: task_generator.py:352 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 13:10:54: task_generator.py:427 * 140735084589824 Get commands from [conf/task.conf] failed
+CRITICAL: 08-14 13:12:58: task_generator.py:215 * 140735084589824 value [13] doesnot match Value_type [<type 'int'>]
+CRITICAL: 08-14 13:12:58: task_generator.py:352 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 13:12:58: task_generator.py:427 * 140735084589824 Get commands from [conf/task.conf] failed
+CRITICAL: 08-14 13:14:35: task_generator.py:215 * 140735084589824 value [13] doesnot match Value_type [<type 'int'>]
+CRITICAL: 08-14 13:14:35: task_generator.py:352 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 13:14:35: task_generator.py:427 * 140735084589824 Get commands from [conf/task.conf] failed

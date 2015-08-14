@@ -52,7 +52,7 @@ class TableJoinCheckerTask(TaskBase):
         
         # 2. get info from task conf
         try:
-            self._join_checker = self.get_attribute("join_checker", self._json, str)
+            self._join_checker = self.get_attribute("join_checker", self._json, unicode)
             self._join_checker_args = self.get_attribute("join_checker_args", self._json, "args")
             file_dics = self.get_attribute("files", self._json, list)
         except (KeyError, ValueError, TypeError) as e:
@@ -66,10 +66,10 @@ class TableJoinCheckerTask(TaskBase):
         self._ratios = []
         for file_dic in file_dics:
             try:
-                file   = self.get_attribute("filename", file_dic, str)
+                file   = self.get_attribute("filename", file_dic, unicode)
                 fields = self.get_attribute("fields", file_dic, "fields")
                 decode = self.get_attribute("decode", file_dic, "code")
-                sep    = self.get_attribute("sep"   , file_dic, str)
+                sep    = self.get_attribute("sep"   , file_dic, unicode)
                 ratio  = self.get_attribute("ratio", file_dic, "ratio")
             except (KeyError, ValueError, TypeError) as e:
                 raise TableJoinCheckerTaskInitError("Init taskconf failed because of [%s]" % (e))
