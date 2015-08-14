@@ -1,0 +1,16 @@
+
+script/bak/data_sampler_manager.py
+
+*.pyc
+
+script/.tmp.swp
+
+script/bak/table_checker_manager.py
+
+script/bak/table_join_checker_manager.py
+
+script/bak/sample_data.py
+
+script/tmp
+
+*.swp
