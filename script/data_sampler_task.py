@@ -44,7 +44,7 @@ class DataSamplerTaskHadoop(TaskBase):
         line = line.rstrip("\n")
         # 1. load task conf
         try:
-            super(TaskBase, self).__init__(line) 
+            super(DataSamplerTaskHadoop, self).__init__(line) 
         except ValueError as e:
             raise DataSamplerTaskInitError("%s" % (e))
 
@@ -69,7 +69,7 @@ class DataSamplerTaskHadoop(TaskBase):
         Return:
             0 
         """
-        self._time = time.strftime("%Y%m%d %H:%M:%S", time.time())
+        self._time = time.strftime("%Y%m%d %H:%M:%S", time.localtime())
         status = self._status_infos[0]
         for line in sys.stdin:
             line = line.decode(self._decode)
@@ -102,7 +102,7 @@ class DataSamplerTask(TaskBase):
         line = line.rstrip("\n")
         # 1. load task conf
         try:
-            super(TaskBase, self).__init__(line) 
+            super(DataSamplerTask, self).__init__(line) 
         except ValueError as e:
             raise DataSamplerTaskInitError("%s" % (e))
 
@@ -134,7 +134,7 @@ class DataSamplerTask(TaskBase):
             Exception:
                 DataSamplerTaskExcuteError
             """
-            self._time = time.strftime("%Y%m%d %H:%M:%S", time.time())
+            self._time = time.strftime("%Y%m%d %H:%M:%S", time.localtime())
             #f_out = sys.stdout
             f_out = open(self._f_out_name, "w")
             status = self._status_infos[0]
@@ -186,4 +186,4 @@ class DataSamplerTask(TaskBase):
             Return:
                 0
             """
-            return super(TaskBase, self).write_status(fstream, encode) 
+            return super(DataSamplerTask, self).write_status(fstream, encode) 

@@ -46,7 +46,7 @@ class TableJoinCheckerTask(TaskBase):
         line = line.rstrip("\n")
         # 1. load task conf
         try:
-            super(TaskBase, self).__init__(line)
+            super(TableJoinCheckerTask, self).__init__(line)
         except ValueError as e:
             raise TableJoinCheckerTaskInitError("%s" % (e))
         
@@ -86,7 +86,7 @@ class TableJoinCheckerTask(TaskBase):
         """return process_name"""
         names = [["join_checker", self._join_checker, self._join_checker_args]]
         for fields in self._fields:
-            names.expend(fields.get_process_name))
+            names.expend(fields.get_process_name)
         return names
 
 
@@ -102,7 +102,7 @@ class TableJoinCheckerTask(TaskBase):
         Exception:
             TableJoinCheckerTaskExcuteError
         """
-        self._time = time.strftime("%Y%m%d %H:%M:%S", time.time())
+        self._time = time.strftime("%Y%m%d %H:%M:%S", time.localtime())
         try:
             join_table_checker = process_manager.locate("join_table_checker", self._join_checker) 
         except ProcesserManagerLocateError as e:
@@ -158,5 +158,5 @@ class TableJoinCheckerTask(TaskBase):
         Return:
             0
         """
-        return super(TaskBase, self).write_status(fstream, encode) 
+        return super(TableJoinCheckerTask, self).write_status(fstream, encode) 
    

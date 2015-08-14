@@ -40,7 +40,7 @@ class FieldList(object):
         names = []
         for field in self._fields:
             name = field.get_process_name()
-            if name is not None
+            if name is not None:
                 names.append(name)
         return names 
 
@@ -75,7 +75,7 @@ class Field(object):
         if "args" in dic:
             self.process_args = dic["args"]
             if not isinstance(self.process_args, list):
-                raise TypeError("Invalid process_class [%s], it should be list", \
+                raise TypeError("Invalid process_class [%s], it should be list" \
                             % (str(self.process_args)))
 
         if "processer" in dic:
@@ -104,7 +104,7 @@ class Field(object):
             except ProcesserManagerLocateError as e:
                 raise e
             value = process_class(value, self.process_args)
-        if isinstance(value, list)
+        if isinstance(value, list):
             return value
         else:
             return [value]
@@ -157,6 +157,7 @@ class TaskBase(object):
         Args: 
             line: task command line 
         """
+        print line
         line = line.rstrip("\n")
         
         try:
@@ -166,7 +167,7 @@ class TaskBase(object):
         self._task_name = repr(self._json)
         self._status_infos = []
         self._if_success = False
-        self._time = time.strftime("%Y%m%d %H:%M:%S", time.time())
+        self._time = time.strftime("%Y%m%d %H:%M:%S", time.localtime())
 
 
 
@@ -223,12 +224,12 @@ class TaskBase(object):
         
         else:
             try:
-                ret = isinstance(value, value_type):
+                ret = isinstance(value, value_type)
             except TypeError as e:
                 raise e
         
             if ret is False:
-                raise TypeError("value [%s] doesnot match Value_type [%s]" str(value), str(value_type))
+                raise TypeError("value [%s] doesnot match Value_type [%s]" % (str(value), str(value_type)))
         
         return value
 

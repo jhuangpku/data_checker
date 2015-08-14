@@ -1,0 +1,36 @@
+WARNING: 08-14 11:33:18: task_generator.py:202 * 140735084589824 Invalid filename [./data/a.data], it should be contained in data_sampler
+CRITICAL: 08-14 11:33:18: task_generator.py:349 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 11:33:18: task_generator.py:423 * 140735084589824 Get commands from [conf/task.conf] failed
+WARNING: 08-14 11:33:53: task_generator.py:202 * 140735084589824 Invalid filename [./data/a.data], it should be contained in data_sampler
+CRITICAL: 08-14 11:33:53: task_generator.py:349 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 11:33:53: task_generator.py:424 * 140735084589824 Get commands from [conf/task.conf] failed
+WARNING: 08-14 11:36:48: task_generator.py:202 * 140735084589824 Invalid filename [./data/a.data], it should be contained in data_sampler
+CRITICAL: 08-14 11:36:48: task_generator.py:349 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 11:36:48: task_generator.py:424 * 140735084589824 Get commands from [conf/task.conf] failed
+WARNING: 08-14 11:37:35: task_generator.py:202 * 140735084589824 Invalid filename [./data/a.data.utf8], it should be contained in data_sampler
+CRITICAL: 08-14 11:37:35: task_generator.py:349 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 11:37:35: task_generator.py:424 * 140735084589824 Get commands from [conf/task.conf] failed
+WARNING: 08-14 11:39:10: task_generator.py:202 * 140735084589824 Invalid filename [./data/a.data.utf8], it should be contained in data_sampler
+CRITICAL: 08-14 11:39:10: task_generator.py:351 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 11:39:10: task_generator.py:426 * 140735084589824 Get commands from [conf/task.conf] failed
+WARNING: 08-14 11:40:00: task_generator.py:202 * 140735084589824 Invalid filename [./data/a.data.utf8], it should be contained in data_sampler
+CRITICAL: 08-14 11:40:00: task_generator.py:352 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 11:40:00: task_generator.py:427 * 140735084589824 Get commands from [conf/task.conf] failed
+WARNING: 08-14 11:57:28: task_generator.py:202 * 140735084589824 Invalid filename [./data/a.data.utf8], it should be contained in data_sampler
+CRITICAL: 08-14 11:57:28: task_generator.py:351 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 11:57:28: task_generator.py:426 * 140735084589824 Get commands from [conf/task.conf] failed
+WARNING: 08-14 11:57:45: task_generator.py:202 * 140735084589824 Invalid filename [./data/a.data.utf8], it should be contained in data_sampler
+CRITICAL: 08-14 11:57:45: task_generator.py:351 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 11:57:45: task_generator.py:426 * 140735084589824 Get commands from [conf/task.conf] failed
+WARNING: 08-14 11:58:19: task_generator.py:202 * 140735084589824 Invalid filename [./data/a.data.utf8], it should be contained in data_sampler
+CRITICAL: 08-14 11:58:19: task_generator.py:352 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 11:58:19: task_generator.py:427 * 140735084589824 Get commands from [conf/task.conf] failed
+WARNING: 08-14 11:58:41: task_generator.py:202 * 140735084589824 Invalid filename [./data/a.data.utf8], it should be contained in data_sampler
+CRITICAL: 08-14 11:58:41: task_generator.py:353 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 11:58:41: task_generator.py:428 * 140735084589824 Get commands from [conf/task.conf] failed
+WARNING: 08-14 11:59:05: task_generator.py:202 * 140735084589824 Invalid filename [./data/a.data.utf8], it should be contained in data_sampler
+CRITICAL: 08-14 11:59:05: task_generator.py:353 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 11:59:05: task_generator.py:428 * 140735084589824 Get commands from [conf/task.conf] failed
+CRITICAL: 08-14 12:42:15: task_generator.py:311 * 140735084589824 value [./data/a.data.utf8] doesnot match Value_type [<type 'str'>]
+CRITICAL: 08-14 12:42:15: task_generator.py:344 * 140735084589824 Check data_sampler when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 12:42:15: task_generator.py:427 * 140735084589824 Get commands from [conf/task.conf] failed

@@ -94,7 +94,7 @@ class TableCheckerTask(TaskBase):
         line = line.rstrip("\n")
         # 1. load json
         try:
-            super(TaskBase, self).__init__(line) 
+            super(TableCheckerTask, self).__init__(line) 
         except ValueError as e:
             raise TableCheckerTaskInitError("%s" % (e))
 
@@ -135,7 +135,7 @@ class TableCheckerTask(TaskBase):
         return names
     
     
-    def excute(self, process_manager)
+    def excute(self, process_manager):
         """
         begin to excute
         
@@ -147,7 +147,7 @@ class TableCheckerTask(TaskBase):
         Exception:
             TableCheckerTaskExcuteError
         """
-        self._time = time.strftime("%Y%m%d %H:%M:%S", time.time())
+        self._time = time.strftime("%Y%m%d %H:%M:%S", time.localtime())
         try:
             with open(self._f_name, "r") as f:
                 for line in f:
@@ -189,5 +189,5 @@ class TableCheckerTask(TaskBase):
         Return:
             0
         """
-        return super(TaskBase, self).write_status(fstream, encode) 
+        return super(TableCheckerTask, self).write_status(fstream, encode) 
          

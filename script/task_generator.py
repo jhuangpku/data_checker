@@ -13,19 +13,21 @@ Description: task generator
 """
 
 import sys
-sys.path.append("util")
+sys.path.append("script/util")
+import log
 import ConfigParser
 import getopt 
-import logging
 import json
-import log
+import glob
+import copy
 
+import logging
 from data_sampler_task import DataSamplerTask
 from data_sampler_task import DataSamplerTaskInitError
-from table_check_task import TableCheckerTask
-from table_check_task import TableCheckerTaskInitError
-from table_join_check_task import TableJoinCheckerTask 
-from table_join_check_task import TableJoinCheckerTaskInitError
+from table_checker_task import TableCheckerTask
+from table_checker_task import TableCheckerTaskInitError
+from table_join_checker_task import TableJoinCheckerTask 
+from table_join_checker_task import TableJoinCheckerTaskInitError
 
 G_DEFAULT_ARGS = {
     "data_sampler":{
@@ -84,15 +86,15 @@ def str_handler(l):
     cols = l.split(";")
     dic = {}
     for col in cols:
-        key, value = cols.split("=")
+        key, value = col.split("=")
         if key == "fields":
             fields_list = get_fields(value)
             dic[key] = fields_list
         else:
-            values = values.split(",")
+            values = value.split(",")
             if len(values) == 1:
                 values = values[0]
-            dic[key] = value
+            dic[key] = values
     return dic
 
 
@@ -144,7 +146,7 @@ def get_opt_blocks(config, section):
     try:
         options = config.options(section)
     except ConfigParser.NoSectionError as e:
-        rasie e
+        raise e
     # divide options according to prefix
     try:
         option_blocks = divide_options(options)
@@ -160,7 +162,7 @@ def get_opt_blocks(config, section):
             blocks.append([main_option, sub_options])
         except (ConfigParser.NoSectionError, ConfigParser.NoOptionError) as e:
             raise e
-
+    return blocks
 
 
 def get_json_dics(config, section):
@@ -169,20 +171,21 @@ def get_json_dics(config, section):
         line_blocks = get_opt_blocks(config, section)
     except (ConfigParser.NoOptionError, ConfigParser.NoSectionError, ValueError) as e:
         raise e
-    
+    json_dics = []
     for block in line_blocks:
         task_dic = str_handler(block[0])
-        if section == "data_sampler":
-            continue
-        elif section == "table_check":
+        key = ""
+        if section == "table_check":
             key = "col_check_task"
         elif section == "table_join_check":
             key = "files"
-        task_dic[key] = []
-        for l in block[1:]:
-            sub_task_dic = str_handler(l)
-            task_dic[key].append(sub_task_dic)
-    return task_dic
+        if key is not "":
+            task_dic[key] = []
+            for l in block[1]:
+                sub_task_dic = str_handler(l)
+                task_dic[key].append(sub_task_dic)
+        json_dics.append(task_dic)
+    return json_dics
 
 def get_table_checker_commands(config, info_dics):
     try:
@@ -190,7 +193,6 @@ def get_table_checker_commands(config, info_dics):
     except (ConfigParser.NoOptionError, ConfigParser.NoSectionError, ValueError) as e:
         logging.warning("%s" % (e))
         return None 
-    
     for json_dic in json_dics:
         if "filename" not in json_dic:
             logging.warning("Invalid json_dic [%s], It must contain key ['filename']" % \
@@ -208,7 +210,7 @@ def get_table_checker_commands(config, info_dics):
             json_dic["sep"] = G_DEFAULT_ARGS["table_checker"]["sep"]
         
         try:
-            tmp = TableCheckerTask(json.dump(json_dic))
+            tmp = TableCheckerTask(json.dumps(json_dic))
         except TableCheckerTaskInitError as e:
             logging.fatal("%s" % (e))
             return None
@@ -242,7 +244,7 @@ def get_table_join_checker_commands(config, info_dics):
                 json_dic["sep"] = G_DEFAULT_ARGS["table_join_checker"]["sep"]
             
         try:
-            tmp = TableJoinCheckerTask(json.dump(n_json_dic))
+            tmp = TableJoinCheckerTask(json.dumps(n_json_dic))
         except TableJoinCheckerTaskInitError as e:
             logging.fatal("%s" % (e))
             return None
@@ -264,13 +266,13 @@ def get_data_sampler_commands(config):
     info_dics = {} # input_file_name:dic_index
     # as for data_sampler we must check following things
     for json_dic in json_dics:
-        if "input_file" not in json_dics or "output_dir" not in json_dics:
-            logging.warning("Invalid json_dic [%s], it should contain key ['input_file']" % (n_json_dic))
+        if "input_file" not in json_dic or "output_dir" not in json_dic:
+            logging.warning("Invalid json_dic [%s], it should contain key ['input_file']" % (json_dic))
             return None
         input_file = json_dic["input_file"]
         # hdfs, change output
         if input_file[0:4] == "hdfs":
-            new_json_dic = deep.copy(json_dic)
+            new_json_dic = copy.deepcopy(json_dic)
             new_json_dic["output_file"] = "%s/%s.sample" % (new_json_dic["output_dir"], \
                                                             f.rstrip("/").split("/")[-1])
             if input_file in info_dics:
@@ -281,16 +283,15 @@ def get_data_sampler_commands(config):
         # not hdfs
         else:
             for f in glob.glob(input_file):
-                new_json_dic = deep.copy(json_dic)
+                new_json_dic = copy.deepcopy(json_dic)
                 new_json_dic["input_file"] = f
-                new_json_dic["output_file"] = "%s/%s.sample" % (new_json_dic["output_dir"], f)
+                new_json_dic["output_file"] = "%s/%s.sample" % (new_json_dic["output_dir"], f.split("/")[-1])
                 # replace
                 if f in info_dics:
                     new_json_dics[info_dics[f]] = new_json_dic 
                 else:
                     new_json_dics.append(new_json_dic)
                     info_dics[f] = len(new_json_dics) - 1
-    
     info_dics = {}
     # for no set args, set default args
     for json_dic in new_json_dics:
@@ -304,7 +305,8 @@ def get_data_sampler_commands(config):
         if "ratio" not in json_dic:
             json_dic["ratio"] = G_DEFAULT_ARGS["data_sampler"]["ratio"]
         try:
-            tmp = DataSamplerTask(json.dump(json_dic))
+            print json.dumps(json_dic)
+            tmp = DataSamplerTask(json.dumps(json_dic))
         except DataSamplerTaskInitError as e:
             logging.fatal("%s" % (e))
             return (None, None)
@@ -318,7 +320,7 @@ def get_data_sampler_commands(config):
     return new_json_dics, info_dics
 
 
-def get_commands(task_file) 
+def get_commands(task_file): 
     """
         get commands from task_file
 
@@ -342,6 +344,8 @@ def get_commands(task_file)
         logging.fatal("Check data_sampler when reading task_file failed [%s]" % (task_file))
         return None
     logging.info("Check data_sampler successful [%s]" % (task_file))
+    print data_sampler_commands
+    print data_sampler_dic
     # get table_checker task and check validation
     table_checker_commands = get_table_checker_commands(config, data_sampler_dic)
     if table_checker_commands is None:
@@ -393,7 +397,7 @@ def main(config_file, task_file, command_file):
             task_file = config.get("task_generator", "task_file")
         except (ConfigParser.NoSectionError, ConfigParser.NoOptionError) as e:
             logging.fatal("%s" % (e))
-        return 1
+            return 1
     logging.info("Set task file [%s] successful" % (task_file)) 
     
     # init command_file 
@@ -402,12 +406,12 @@ def main(config_file, task_file, command_file):
             command_file = config.get("task_generator", "command_file")
         except (ConfigParser.NoSectionError, ConfigParser.NoOptionError) as e:
             logging.fatal("%s" % (e))
-        return 1
+            return 1
     logging.info("Set command file [%s] successful" % (command_file)) 
     
     # init output task_file
     output_task_files = []
-    for section in ["data_sampler", "table_checker", "table_join_checker"]
+    for section in ["data_sampler", "table_checker", "table_join_checker"]:
         try:
             filename = config.get(section, "task_file")
         except (ConfigParser.NoSectionError, ConfigParser.NoOptionError) as e:
@@ -417,9 +421,11 @@ def main(config_file, task_file, command_file):
     logging.info("Get output task file [%s] successful" % (str(output_task_files)))
 
     # read task_file and handler information 
-    commands_list = get_commands(task_file) 
+    commands_list = get_commands(task_file)
+    print commands_list
     if commands_list is None:
         logging.fatal("Get commands from [%s] failed" % (task_file))
+        return 1
     logging.info("Get commands from [%s] successful" % (task_file))
     
     # write commands and generate task file
@@ -430,7 +436,7 @@ def main(config_file, task_file, command_file):
             logging.fatal("Write [%s] task [%s] failed" % (tag, output_task_file))
             return 1
         logging.info("Write [%s] task [%s] successful" % (tag, output_task_file))
-        ret = write_commands(commands, command_file, tag)
+        ret = write_commands(commands, command_file, tag, config_file)
         if ret != 0:
             logging.fatal("Write [%s] commands [%s] failed" % (tag, command_file))
             return 1
@@ -438,6 +444,40 @@ def main(config_file, task_file, command_file):
 
     logging.info("Write task file [%s] successful")
     return 0 
+
+
+def write_task(commands, filename, tag):
+    """write task"""
+    try:
+        with open(filename, "w") as f:
+            for c in commands:
+                f.write("%s\n" % (json.dumps(c)))
+    except IOError as e:
+        logging.warning("%s" % (e))
+        return 1
+    return 0
+
+def write_commands(commands, filename, tag, config_file):
+    """write commands"""
+    prefix = 'python %s.py -c %s --command="' % (tag, config_file)
+
+    try:
+        with open(filename, "a") as f:
+            for c in commands:
+                if "input_file" in c and c["input_file"][0:4] == "hdfs":
+                    f.write("%s\t%s\t" % (c["input_file"], c["output_file"]))
+                    del c["input_file"]
+                    del c["output_file"]
+                    del c["sep"]
+                    f.write("%s\n" % (json.dumps(c)))
+                else:
+                    f.write('%s%s"' % (prefix, json.dumps(c)))
+    except IOError as e:
+        logging.warning("%s" % (e))
+        return 1
+    return 0
+
+
 
 
 if __name__ == "__main__":
