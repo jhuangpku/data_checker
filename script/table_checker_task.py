@@ -41,6 +41,7 @@ class TableCheckerSubTask(object):
             task_name: task_name, str
         
         """
+        self.task_name = task_name
         self.col_checker = checker
         self.args = args
         self.fields = fields
@@ -101,7 +102,7 @@ class TableCheckerTask(TaskBase):
         # 2. get info from json 
         try:
             self._f_name  = self.get_attribute("filename", self._json, unicode)
-            self._decode  = self.get_attribute("decode",   self._json, "code")         
+            self._decode  = self.get_attribute("decode",   self._json, "code")
             self._col_cnt = self.get_attribute("col_cnt",  self._json, int)
             self._sep     = self.get_attribute("sep",      self._json, unicode)
             sub_tasks = self.get_attribute("col_check_task", self._json, list)

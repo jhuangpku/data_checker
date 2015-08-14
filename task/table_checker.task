@@ -1,0 +1,1 @@
+{"decode": "utf8", "col_check_task": [{"fields": [{"field_no": 3, "processer": "trim", "args": ["B", "C"]}, {"field_no": 5}], "checker_args": "A", "col_checker": "float"}, {"fields": [{"field_no": 8}], "col_checker": "float"}], "sep": "\t", "col_cnt": 13, "filename": "./sample_data//a.data.utf8.sample"}

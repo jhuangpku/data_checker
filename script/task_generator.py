@@ -72,7 +72,7 @@ def get_fields(value):
     for field in fields:
         items = field.split(":")
         dic = {}
-        dic["col_no"] = int(items[0])
+        dic["field_no"] = int(items[0])
         if len(items) >= 2:
             dic["processer"] = items[1]
         if len(items) >= 3:
@@ -90,6 +90,12 @@ def str_handler(l):
         if key == "fields":
             fields_list = get_fields(value)
             dic[key] = fields_list
+        elif key == "col_cnt":
+            value = int(value)
+            dic[key] = value
+        elif key == "ratio":
+            value = float(value)
+            dic[key] = value
         else:
             values = value.split(",")
             if len(values) == 1:
@@ -174,10 +180,11 @@ def get_json_dics(config, section):
     json_dics = []
     for block in line_blocks:
         task_dic = str_handler(block[0])
+        #print "df", task_dic
         key = ""
-        if section == "table_check":
+        if section == "table_checker":
             key = "col_check_task"
-        elif section == "table_join_check":
+        elif section == "table_join_checker":
             key = "files"
         if key is not "":
             task_dic[key] = []
@@ -185,6 +192,8 @@ def get_json_dics(config, section):
                 sub_task_dic = str_handler(l)
                 task_dic[key].append(sub_task_dic)
         json_dics.append(task_dic)
+        #print block 
+        #print task_dic
     return json_dics
 
 def get_table_checker_commands(config, info_dics):
@@ -214,7 +223,6 @@ def get_table_checker_commands(config, info_dics):
         except TableCheckerTaskInitError as e:
             logging.fatal("%s" % (e))
             return None
-    
     return json_dics
 
 def get_table_join_checker_commands(config, info_dics):
@@ -442,7 +450,6 @@ def main(config_file, task_file, command_file):
             return 1
         logging.info("Write [%s] commands [%s] successful" % (tag, command_file))
 
-    logging.info("Write task file [%s] successful")
     return 0 
 
 
@@ -471,7 +478,7 @@ def write_commands(commands, filename, tag, config_file):
                     del c["sep"]
                     f.write("%s\n" % (json.dumps(c)))
                 else:
-                    f.write('%s%s"' % (prefix, json.dumps(c)))
+                    f.write('%s%s"\n' % (prefix, json.dumps(c)))
     except IOError as e:
         logging.warning("%s" % (e))
         return 1

@@ -318,3 +318,325 @@ INFO: 08-14 13:14:35: task_generator.py:346 * 140735084589824 Check data_sampler
 CRITICAL: 08-14 13:14:35: task_generator.py:215 * 140735084589824 value [13] doesnot match Value_type [<type 'int'>]
 CRITICAL: 08-14 13:14:35: task_generator.py:352 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
 CRITICAL: 08-14 13:14:35: task_generator.py:427 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 13:20:49: task_generator.py:401 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 13:20:49: task_generator.py:410 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 13:20:49: task_generator.py:421 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 13:20:49: task_generator.py:339 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 13:20:49: task_generator.py:346 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 13:20:49: task_generator.py:215 * 140735084589824 value [13] doesnot match Value_type [<type 'int'>]
+CRITICAL: 08-14 13:20:49: task_generator.py:352 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 13:20:49: task_generator.py:427 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 13:44:14: task_generator.py:405 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 13:44:14: task_generator.py:414 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 13:44:14: task_generator.py:425 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 13:44:14: task_generator.py:343 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 13:44:14: task_generator.py:350 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 13:44:14: task_generator.py:219 * 140735084589824 'col_cnt'
+CRITICAL: 08-14 13:44:14: task_generator.py:356 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 13:44:14: task_generator.py:431 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 13:45:02: task_generator.py:405 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 13:45:02: task_generator.py:414 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 13:45:02: task_generator.py:425 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 13:45:02: task_generator.py:343 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 13:45:02: task_generator.py:350 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 13:45:02: task_generator.py:219 * 140735084589824 'col_cnt'
+CRITICAL: 08-14 13:45:02: task_generator.py:356 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 13:45:02: task_generator.py:431 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 13:46:21: task_generator.py:406 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 13:46:21: task_generator.py:415 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 13:46:21: task_generator.py:426 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 13:46:21: task_generator.py:344 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 13:46:21: task_generator.py:351 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 13:46:21: task_generator.py:220 * 140735084589824 'col_cnt'
+CRITICAL: 08-14 13:46:21: task_generator.py:357 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 13:46:21: task_generator.py:432 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 13:47:46: task_generator.py:407 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 13:47:46: task_generator.py:416 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 13:47:46: task_generator.py:427 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 13:47:46: task_generator.py:345 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 13:47:46: task_generator.py:352 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 13:47:46: task_generator.py:221 * 140735084589824 'col_cnt'
+CRITICAL: 08-14 13:47:46: task_generator.py:358 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 13:47:46: task_generator.py:433 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 13:49:25: task_generator.py:406 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 13:49:25: task_generator.py:415 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 13:49:25: task_generator.py:426 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 13:49:25: task_generator.py:344 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 13:49:25: task_generator.py:351 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 13:49:25: task_generator.py:220 * 140735084589824 'col_cnt'
+CRITICAL: 08-14 13:49:25: task_generator.py:357 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 13:49:25: task_generator.py:432 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 13:49:41: task_generator.py:406 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 13:49:41: task_generator.py:415 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 13:49:41: task_generator.py:426 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 13:49:41: task_generator.py:344 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 13:49:41: task_generator.py:351 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 13:49:41: task_generator.py:220 * 140735084589824 'col_cnt'
+CRITICAL: 08-14 13:49:41: task_generator.py:357 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 13:49:41: task_generator.py:432 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 13:52:15: task_generator.py:406 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 13:52:15: task_generator.py:415 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 13:52:15: task_generator.py:426 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 13:52:15: task_generator.py:344 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 13:52:15: task_generator.py:351 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 13:52:15: task_generator.py:220 * 140735084589824 'col_cnt'
+CRITICAL: 08-14 13:52:15: task_generator.py:357 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 13:52:15: task_generator.py:432 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 13:53:02: task_generator.py:405 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 13:53:02: task_generator.py:414 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 13:53:02: task_generator.py:425 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 13:53:02: task_generator.py:343 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 13:53:02: task_generator.py:350 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 13:53:02: task_generator.py:220 * 140735084589824 'col_cnt'
+CRITICAL: 08-14 13:53:02: task_generator.py:356 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 13:53:02: task_generator.py:431 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 13:55:41: task_generator.py:405 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 13:55:41: task_generator.py:414 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 13:55:41: task_generator.py:425 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 13:55:41: task_generator.py:343 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 13:55:41: task_generator.py:350 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 13:55:41: task_generator.py:220 * 140735084589824 'col_cnt'
+CRITICAL: 08-14 13:55:41: task_generator.py:356 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 13:55:41: task_generator.py:431 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 13:56:09: task_generator.py:405 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 13:56:09: task_generator.py:414 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 13:56:09: task_generator.py:425 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 13:56:09: task_generator.py:343 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 13:56:09: task_generator.py:350 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 13:56:09: task_generator.py:220 * 140735084589824 'col_cnt'
+CRITICAL: 08-14 13:56:09: task_generator.py:356 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 13:56:09: task_generator.py:431 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 13:56:40: task_generator.py:405 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 13:56:40: task_generator.py:414 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 13:56:40: task_generator.py:425 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 13:56:40: task_generator.py:343 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 13:56:40: task_generator.py:350 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 13:56:40: task_generator.py:220 * 140735084589824 'col_cnt'
+CRITICAL: 08-14 13:56:40: task_generator.py:356 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 13:56:40: task_generator.py:431 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 13:56:57: task_generator.py:405 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 13:56:57: task_generator.py:414 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 13:56:57: task_generator.py:425 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 13:56:57: task_generator.py:343 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 13:57:21: task_generator.py:405 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 13:57:21: task_generator.py:414 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 13:57:21: task_generator.py:425 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 13:57:21: task_generator.py:343 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 13:57:21: task_generator.py:350 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 13:57:21: task_generator.py:220 * 140735084589824 'col_cnt'
+CRITICAL: 08-14 13:57:21: task_generator.py:356 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 13:57:21: task_generator.py:431 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 13:58:32: task_generator.py:405 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 13:58:32: task_generator.py:414 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 13:58:32: task_generator.py:425 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 13:58:32: task_generator.py:343 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 13:58:32: task_generator.py:350 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 13:58:32: task_generator.py:220 * 140735084589824 "key [col_cnt] is not in obj [{u'decode': u'utf8', u'filename': u'./sample_data//a.data.utf8.sample', u'sep': u'\\t'}]"
+CRITICAL: 08-14 13:58:32: task_generator.py:356 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 13:58:32: task_generator.py:431 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 14:00:27: task_generator.py:405 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 14:00:27: task_generator.py:414 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 14:00:27: task_generator.py:425 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 14:00:27: task_generator.py:343 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 14:00:27: task_generator.py:350 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 14:00:27: task_generator.py:220 * 140735084589824 "key [col_cnt] is not in obj [{u'decode': u'utf8', u'filename': u'./sample_data//a.data.utf8.sample', u'sep': u'\\t'}]"
+CRITICAL: 08-14 14:00:27: task_generator.py:356 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 14:00:27: task_generator.py:431 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 14:01:55: task_generator.py:405 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 14:01:55: task_generator.py:414 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 14:01:55: task_generator.py:425 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 14:01:55: task_generator.py:343 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 14:01:55: task_generator.py:350 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 14:01:55: task_generator.py:220 * 140735084589824 "key [col_cnt] is not in obj [{u'decode': u'utf8', u'filename': u'./sample_data//a.data.utf8.sample', u'sep': u'\\t'}]"
+CRITICAL: 08-14 14:01:55: task_generator.py:356 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 14:01:55: task_generator.py:431 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 14:02:39: task_generator.py:404 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 14:02:39: task_generator.py:413 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 14:02:39: task_generator.py:424 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 14:02:39: task_generator.py:342 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 14:02:39: task_generator.py:349 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 14:02:39: task_generator.py:219 * 140735084589824 "key [col_cnt] is not in obj [{u'decode': u'utf8', u'col_check_task': [{u'fields': [{u'col_no': 3, u'processer': u'trim', u'args': [u'B', u'C']}, {u'col_no': 5}], u'checker': u'float', u'checker_args': u'A'}, {u'fields': [{u'col_no': 8}], u'checker': u'float'}], u'filename': u'./sample_data//a.data.utf8.sample', u'sep': u'\\t'}]"
+CRITICAL: 08-14 14:02:39: task_generator.py:355 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 14:02:39: task_generator.py:430 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 14:03:01: task_generator.py:404 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 14:03:01: task_generator.py:413 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 14:03:01: task_generator.py:424 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 14:03:01: task_generator.py:342 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 14:03:01: task_generator.py:349 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 14:03:01: task_generator.py:219 * 140735084589824 "key [col_cnt] is not in obj [{u'decode': u'utf8', u'col_check_task': [{u'fields': [{u'col_no': 3, u'processer': u'trim', u'args': [u'B', u'C']}, {u'col_no': 5}], u'checker': u'float', u'checker_args': u'A'}, {u'fields': [{u'col_no': 8}], u'checker': u'float'}], u'filename': u'./sample_data//a.data.utf8.sample', u'sep': u'\\t'}]"
+CRITICAL: 08-14 14:03:01: task_generator.py:355 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 14:03:01: task_generator.py:430 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 14:05:34: task_generator.py:405 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 14:05:34: task_generator.py:414 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 14:05:34: task_generator.py:425 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 14:05:34: task_generator.py:343 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 14:05:57: task_generator.py:405 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 14:05:57: task_generator.py:414 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 14:05:57: task_generator.py:425 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 14:05:57: task_generator.py:343 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 14:05:57: task_generator.py:350 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 14:05:57: task_generator.py:220 * 140735084589824 "key [col_cnt] is not in obj [{u'decode': u'utf8', u'col_check_task': [{u'fields': [{u'col_no': 3, u'processer': u'trim', u'args': [u'B', u'C']}, {u'col_no': 5}], u'checker': u'float', u'checker_args': u'A'}, {u'fields': [{u'col_no': 8}], u'checker': u'float'}], u'filename': u'./sample_data//a.data.utf8.sample', u'sep': u'\\t'}]"
+CRITICAL: 08-14 14:05:57: task_generator.py:356 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 14:05:57: task_generator.py:431 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 17:22:29: task_generator.py:405 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 17:22:29: task_generator.py:414 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 17:22:29: task_generator.py:425 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 17:22:29: task_generator.py:343 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 17:22:29: task_generator.py:350 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 17:22:29: task_generator.py:220 * 140735084589824 "key [col_cnt] is not in obj [{u'decode': u'utf8', u'col_check_task': [{u'fields': [{u'col_no': 3, u'processer': u'trim', u'args': [u'B', u'C']}, {u'col_no': 5}], u'checker': u'float', u'checker_args': u'A'}, {u'fields': [{u'col_no': 8}], u'checker': u'float'}], u'filename': u'./sample_data//a.data.utf8.sample', u'sep': u'\\t'}]"
+CRITICAL: 08-14 17:22:29: task_generator.py:356 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 17:22:29: task_generator.py:431 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 17:22:53: task_generator.py:406 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 17:22:53: task_generator.py:415 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 17:22:53: task_generator.py:426 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 17:22:53: task_generator.py:344 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 17:22:53: task_generator.py:351 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 17:22:53: task_generator.py:221 * 140735084589824 "key [col_cnt] is not in obj [{u'decode': u'utf8', u'col_check_task': [{u'fields': [{u'col_no': 3, u'processer': u'trim', u'args': [u'B', u'C']}, {u'col_no': 5}], u'checker': u'float', u'checker_args': u'A'}, {u'fields': [{u'col_no': 8}], u'checker': u'float'}], u'filename': u'./sample_data//a.data.utf8.sample', u'sep': u'\\t'}]"
+CRITICAL: 08-14 17:22:53: task_generator.py:357 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 17:22:53: task_generator.py:432 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 17:25:44: task_generator.py:407 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 17:25:44: task_generator.py:416 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 17:25:44: task_generator.py:427 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 17:25:44: task_generator.py:345 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 17:25:44: task_generator.py:352 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 17:25:44: task_generator.py:222 * 140735084589824 "key [col_cnt] is not in obj [{u'decode': u'utf8', u'col_check_task': [{u'fields': [{u'col_no': 3, u'processer': u'trim', u'args': [u'B', u'C']}, {u'col_no': 5}], u'checker': u'float', u'checker_args': u'A'}, {u'fields': [{u'col_no': 8}], u'checker': u'float'}], u'filename': u'./sample_data//a.data.utf8.sample', u'sep': u'\\t'}]"
+CRITICAL: 08-14 17:25:44: task_generator.py:358 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 17:25:44: task_generator.py:433 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 17:26:04: task_generator.py:407 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 17:26:04: task_generator.py:416 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 17:26:04: task_generator.py:427 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 17:26:04: task_generator.py:345 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 17:26:04: task_generator.py:352 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 17:26:04: task_generator.py:222 * 140735084589824 "key [col_cnt] is not in obj [{u'decode': u'utf8', u'col_check_task': [{u'fields': [{u'col_no': 3, u'processer': u'trim', u'args': [u'B', u'C']}, {u'col_no': 5}], u'checker': u'float', u'checker_args': u'A'}, {u'fields': [{u'col_no': 8}], u'checker': u'float'}], u'filename': u'./sample_data//a.data.utf8.sample', u'sep': u'\\t'}]"
+CRITICAL: 08-14 17:26:04: task_generator.py:358 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 17:26:04: task_generator.py:433 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 17:27:05: task_generator.py:408 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 17:27:05: task_generator.py:417 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 17:27:05: task_generator.py:428 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 17:27:05: task_generator.py:346 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 17:27:05: task_generator.py:353 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 17:27:05: task_generator.py:223 * 140735084589824 "key [col_cnt] is not in obj [{u'decode': u'utf8', u'col_check_task': [{u'fields': [{u'col_no': 3, u'processer': u'trim', u'args': [u'B', u'C']}, {u'col_no': 5}], u'checker': u'float', u'checker_args': u'A'}, {u'fields': [{u'col_no': 8}], u'checker': u'float'}], u'filename': u'./sample_data//a.data.utf8.sample', u'sep': u'\\t'}]"
+CRITICAL: 08-14 17:27:05: task_generator.py:359 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 17:27:05: task_generator.py:434 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 17:28:14: task_generator.py:409 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 17:28:14: task_generator.py:418 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 17:28:14: task_generator.py:429 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 17:28:14: task_generator.py:347 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 17:28:14: task_generator.py:354 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 17:28:14: task_generator.py:224 * 140735084589824 "key [col_checker] is not in obj [{u'fields': [{u'col_no': 3, u'processer': u'trim', u'args': [u'B', u'C']}, {u'col_no': 5}], u'checker': u'float', u'checker_args': u'A'}]"
+CRITICAL: 08-14 17:28:14: task_generator.py:360 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 17:28:14: task_generator.py:435 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 17:30:56: task_generator.py:409 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 17:30:56: task_generator.py:418 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 17:30:56: task_generator.py:429 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 17:30:56: task_generator.py:347 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 17:30:56: task_generator.py:354 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 17:30:56: task_generator.py:224 * 140735084589824 get_fields() takes exactly 2 arguments (3 given)
+CRITICAL: 08-14 17:30:56: task_generator.py:360 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 17:30:56: task_generator.py:435 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 17:32:57: task_generator.py:409 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 17:32:57: task_generator.py:418 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 17:32:57: task_generator.py:429 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 17:32:57: task_generator.py:347 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 17:32:57: task_generator.py:354 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 17:32:57: task_generator.py:224 * 140735084589824 'field_no'
+CRITICAL: 08-14 17:32:57: task_generator.py:360 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 17:32:57: task_generator.py:435 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 17:36:54: task_generator.py:409 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 17:36:54: task_generator.py:418 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 17:36:54: task_generator.py:429 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 17:36:54: task_generator.py:347 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 17:36:54: task_generator.py:354 * 140735084589824 Check data_sampler successful [conf/task.conf]
+CRITICAL: 08-14 17:36:54: task_generator.py:224 * 140735084589824 Invalid process_class, it should be string
+CRITICAL: 08-14 17:36:54: task_generator.py:360 * 140735084589824 Check table_checker when reading task_file failed [conf/task.conf]
+CRITICAL: 08-14 17:36:54: task_generator.py:435 * 140735084589824 Get commands from [conf/task.conf] failed
+INFO: 08-14 17:40:53: task_generator.py:409 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 17:40:53: task_generator.py:418 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 17:40:53: task_generator.py:429 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 17:40:53: task_generator.py:347 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 17:40:53: task_generator.py:354 * 140735084589824 Check data_sampler successful [conf/task.conf]
+INFO: 08-14 17:43:07: task_generator.py:409 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 17:43:07: task_generator.py:418 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 17:43:07: task_generator.py:429 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 17:43:07: task_generator.py:347 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 17:43:07: task_generator.py:354 * 140735084589824 Check data_sampler successful [conf/task.conf]
+INFO: 08-14 17:43:07: task_generator.py:362 * 140735084589824 Check table_checker successful [conf/task.conf]
+INFO: 08-14 17:43:07: task_generator.py:369 * 140735084589824 Check table_join_checker successful [conf/task.conf]
+INFO: 08-14 17:43:07: task_generator.py:437 * 140735084589824 Get commands from [conf/task.conf] successful
+INFO: 08-14 17:43:07: task_generator.py:446 * 140735084589824 Write [data_sampler] task [task/data_sampler.task] successful
+INFO: 08-14 17:43:07: task_generator.py:451 * 140735084589824 Write [data_sampler] commands [status_log/command] successful
+INFO: 08-14 17:43:07: task_generator.py:446 * 140735084589824 Write [table_checker] task [task/table_checker.task] successful
+INFO: 08-14 17:43:07: task_generator.py:451 * 140735084589824 Write [table_checker] commands [status_log/command] successful
+INFO: 08-14 17:43:07: task_generator.py:446 * 140735084589824 Write [table_join_checker] task [task/table_join_checker.task] successful
+INFO: 08-14 17:43:07: task_generator.py:451 * 140735084589824 Write [table_join_checker] commands [status_log/command] successful
+INFO: 08-14 17:43:07: task_generator.py:453 * 140735084589824 Write task file [%s] successful
+INFO: 08-14 17:43:49: task_generator.py:409 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 17:43:49: task_generator.py:418 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 17:43:49: task_generator.py:429 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 17:43:49: task_generator.py:347 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 17:43:49: task_generator.py:354 * 140735084589824 Check data_sampler successful [conf/task.conf]
+INFO: 08-14 17:43:49: task_generator.py:362 * 140735084589824 Check table_checker successful [conf/task.conf]
+INFO: 08-14 17:43:49: task_generator.py:369 * 140735084589824 Check table_join_checker successful [conf/task.conf]
+INFO: 08-14 17:43:49: task_generator.py:437 * 140735084589824 Get commands from [conf/task.conf] successful
+INFO: 08-14 17:43:49: task_generator.py:446 * 140735084589824 Write [data_sampler] task [task/data_sampler.task] successful
+INFO: 08-14 17:43:49: task_generator.py:451 * 140735084589824 Write [data_sampler] commands [status_log/command] successful
+INFO: 08-14 17:43:49: task_generator.py:446 * 140735084589824 Write [table_checker] task [task/table_checker.task] successful
+INFO: 08-14 17:43:49: task_generator.py:451 * 140735084589824 Write [table_checker] commands [status_log/command] successful
+INFO: 08-14 17:43:49: task_generator.py:446 * 140735084589824 Write [table_join_checker] task [task/table_join_checker.task] successful
+INFO: 08-14 17:43:49: task_generator.py:451 * 140735084589824 Write [table_join_checker] commands [status_log/command] successful
+INFO: 08-14 17:44:14: task_generator.py:409 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 17:44:14: task_generator.py:418 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 17:44:14: task_generator.py:429 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 17:44:14: task_generator.py:347 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 17:44:14: task_generator.py:354 * 140735084589824 Check data_sampler successful [conf/task.conf]
+INFO: 08-14 17:44:14: task_generator.py:362 * 140735084589824 Check table_checker successful [conf/task.conf]
+INFO: 08-14 17:44:14: task_generator.py:369 * 140735084589824 Check table_join_checker successful [conf/task.conf]
+INFO: 08-14 17:44:14: task_generator.py:437 * 140735084589824 Get commands from [conf/task.conf] successful
+INFO: 08-14 17:44:14: task_generator.py:446 * 140735084589824 Write [data_sampler] task [task/data_sampler.task] successful
+INFO: 08-14 17:44:14: task_generator.py:451 * 140735084589824 Write [data_sampler] commands [status_log/command] successful
+INFO: 08-14 17:44:14: task_generator.py:446 * 140735084589824 Write [table_checker] task [task/table_checker.task] successful
+INFO: 08-14 17:44:14: task_generator.py:451 * 140735084589824 Write [table_checker] commands [status_log/command] successful
+INFO: 08-14 17:44:14: task_generator.py:446 * 140735084589824 Write [table_join_checker] task [task/table_join_checker.task] successful
+INFO: 08-14 17:44:14: task_generator.py:451 * 140735084589824 Write [table_join_checker] commands [status_log/command] successful
+INFO: 08-14 17:46:46: task_generator.py:409 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 17:46:46: task_generator.py:418 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 17:46:46: task_generator.py:429 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 17:46:46: task_generator.py:347 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 17:46:46: task_generator.py:354 * 140735084589824 Check data_sampler successful [conf/task.conf]
+INFO: 08-14 17:46:46: task_generator.py:362 * 140735084589824 Check table_checker successful [conf/task.conf]
+INFO: 08-14 17:46:46: task_generator.py:369 * 140735084589824 Check table_join_checker successful [conf/task.conf]
+INFO: 08-14 17:46:46: task_generator.py:437 * 140735084589824 Get commands from [conf/task.conf] successful
+INFO: 08-14 17:46:46: task_generator.py:446 * 140735084589824 Write [data_sampler] task [task/data_sampler.task] successful
+INFO: 08-14 17:46:46: task_generator.py:451 * 140735084589824 Write [data_sampler] commands [status_log/command] successful
+INFO: 08-14 17:46:46: task_generator.py:446 * 140735084589824 Write [table_checker] task [task/table_checker.task] successful
+INFO: 08-14 17:46:46: task_generator.py:451 * 140735084589824 Write [table_checker] commands [status_log/command] successful
+INFO: 08-14 17:46:46: task_generator.py:446 * 140735084589824 Write [table_join_checker] task [task/table_join_checker.task] successful
+INFO: 08-14 17:46:46: task_generator.py:451 * 140735084589824 Write [table_join_checker] commands [status_log/command] successful
+INFO: 08-14 17:48:36: task_generator.py:409 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 17:48:36: task_generator.py:418 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 17:48:36: task_generator.py:429 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 17:48:36: task_generator.py:347 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 17:48:36: task_generator.py:354 * 140735084589824 Check data_sampler successful [conf/task.conf]
+INFO: 08-14 17:48:36: task_generator.py:362 * 140735084589824 Check table_checker successful [conf/task.conf]
+INFO: 08-14 17:48:36: task_generator.py:369 * 140735084589824 Check table_join_checker successful [conf/task.conf]
+INFO: 08-14 17:48:36: task_generator.py:437 * 140735084589824 Get commands from [conf/task.conf] successful
+INFO: 08-14 17:48:36: task_generator.py:446 * 140735084589824 Write [data_sampler] task [task/data_sampler.task] successful
+INFO: 08-14 17:48:36: task_generator.py:451 * 140735084589824 Write [data_sampler] commands [status_log/command] successful
+INFO: 08-14 17:48:36: task_generator.py:446 * 140735084589824 Write [table_checker] task [task/table_checker.task] successful
+INFO: 08-14 17:48:36: task_generator.py:451 * 140735084589824 Write [table_checker] commands [status_log/command] successful
+INFO: 08-14 17:48:36: task_generator.py:446 * 140735084589824 Write [table_join_checker] task [task/table_join_checker.task] successful
+INFO: 08-14 17:48:36: task_generator.py:451 * 140735084589824 Write [table_join_checker] commands [status_log/command] successful
+INFO: 08-14 17:51:18: task_generator.py:409 * 140735084589824 Set task file [conf/task.conf] successful
+INFO: 08-14 17:51:18: task_generator.py:418 * 140735084589824 Set command file [status_log/command] successful
+INFO: 08-14 17:51:18: task_generator.py:429 * 140735084589824 Get output task file [['task/data_sampler.task', 'task/table_checker.task', 'task/table_join_checker.task']] successful
+INFO: 08-14 17:51:18: task_generator.py:347 * 140735084589824 Read task_file successful [conf/task.conf]
+INFO: 08-14 17:51:18: task_generator.py:354 * 140735084589824 Check data_sampler successful [conf/task.conf]
+INFO: 08-14 17:51:18: task_generator.py:362 * 140735084589824 Check table_checker successful [conf/task.conf]
+INFO: 08-14 17:51:18: task_generator.py:369 * 140735084589824 Check table_join_checker successful [conf/task.conf]
+INFO: 08-14 17:51:18: task_generator.py:437 * 140735084589824 Get commands from [conf/task.conf] successful
+INFO: 08-14 17:51:18: task_generator.py:446 * 140735084589824 Write [data_sampler] task [task/data_sampler.task] successful
+INFO: 08-14 17:51:18: task_generator.py:451 * 140735084589824 Write [data_sampler] commands [status_log/command] successful
+INFO: 08-14 17:51:18: task_generator.py:446 * 140735084589824 Write [table_checker] task [task/table_checker.task] successful
+INFO: 08-14 17:51:18: task_generator.py:451 * 140735084589824 Write [table_checker] commands [status_log/command] successful
+INFO: 08-14 17:51:18: task_generator.py:446 * 140735084589824 Write [table_join_checker] task [task/table_join_checker.task] successful
+INFO: 08-14 17:51:18: task_generator.py:451 * 140735084589824 Write [table_join_checker] commands [status_log/command] successful

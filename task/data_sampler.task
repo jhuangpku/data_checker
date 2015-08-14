@@ -1,0 +1,1 @@
+{"ratio": 0.1, "input_file": "./data/a.data.utf8", "output_file": "./sample_data//a.data.utf8.sample", "decode": "utf8", "encode": "utf8", "sep": "\\n"}

@@ -1,0 +1,1 @@
+{"join_checker": "label_check", "files": [{"decode": "utf8", "fields": [{"field_no": 3, "processer": "trim", "args": ["B", "C"]}, {"field_no": 5}], "sep": "\t", "ratio": 0.1, "filename": "./sample_data//a.data.utf8.sample"}]}

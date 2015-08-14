@@ -80,7 +80,7 @@ class Field(object):
 
         if "processer" in dic:
             self.process_name = dic["processer"]
-            if not isinstance(self.process_name, str):
+            if not isinstance(self.process_name, unicode):
                 raise TypeError("Invalid process_class, it should be string")
 
     def get_values(self, process_manager, cols):
@@ -157,7 +157,7 @@ class TaskBase(object):
         Args: 
             line: task command line 
         """
-        print line
+        #print line
         line = line.rstrip("\n")
         
         try:
@@ -192,7 +192,7 @@ class TaskBase(object):
         try:
             value = obj[key]
         except KeyError as e:
-            raise e
+            raise KeyError("key [%s] is not in obj [%s]" % (key, obj))
         if value_type == "ratio":
             try:
                 return self._get_ratio(value)
@@ -201,7 +201,7 @@ class TaskBase(object):
         
         elif value_type == "fields":
             try:
-                return self.get_fields(self, value)
+                return self.get_fields(value)
             except (TypeError, ValueError, KeyError, IndexError) as e:
                 raise e
         
@@ -219,7 +219,7 @@ class TaskBase(object):
             try:
                 ret = isinstance(value, value_type)
             except TypeError as e:
-                raise e
+                raise TypeError("value [%s] doesnot match Value_type [%s]" % (str(value), str(value_type)))
         
             if ret is False:
                 raise TypeError("value [%s] doesnot match Value_type [%s]" % (str(value), str(value_type)))
