@@ -140,11 +140,13 @@ class StatusInfo(object):
             str_list.append("Check task [%s] successful" % (self.check_name))
         else:
             str_list.append("Check task [%s] failed" % (self.check_name)) 
-        str_list.append("Check [%d] lines, failed [%d] lines, expect failed [%d] lines" \
+        str_list.append("Detail info:")
+        str_list.append("------Check [%d] lines, failed [%d] lines, expect failed [%d] lines" \
                         % (self.check_cnt, self.check_fail_cnt, self.expect_fail_cnt))
-        str_list.append("Top Failed lines:")
-        for (reason, line) in self.fail_info:
-            str_list.append("[%s]:line [%s]" % (reason, line))
+        if len(self.fail_info) != 0:
+            str_list.append("------Top Failed lines:")
+            for (reason, line) in self.fail_info:
+                str_list.append("------[%s]:line [%s]" % (reason, line))
         return "------" + "\n------".join(str_list)
 
 

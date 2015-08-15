@@ -86,7 +86,7 @@ class TableJoinCheckerTask(TaskBase):
         """return process_name"""
         names = [["join_checker", self._join_checker, self._join_checker_args]]
         for fields in self._fields:
-            names.expend(fields.get_process_name)
+            names.extend(fields.get_process_name())
         return names
 
 

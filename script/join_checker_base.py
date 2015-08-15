@@ -12,7 +12,7 @@ Date: 2015/08/05 14:49:26
 Description:join checker base class
 """
 
-class JoinCheckerError(exception):
+class JoinCheckerError(Exception):
     """colchecker error"""
     def __init__(self, msg):
         self.msg = msg

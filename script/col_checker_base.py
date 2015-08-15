@@ -12,7 +12,7 @@ Date: 2015/08/05 14:40:58
 Description:
 """
 
-class ColCheckerError(exception):
+class ColCheckerError(Exception):
     """colchecker error"""
     def __init__(self, msg):
         self.msg = msg

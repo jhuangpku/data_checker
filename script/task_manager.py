@@ -226,7 +226,7 @@ class TableJoinCheckerManager(TaskManagerBase):
                 raise e
             logging.info("Init task with command [%s] successful" % (command))
             tasks.append(task)
-        return task
+        return tasks
 
 
 

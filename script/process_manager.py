@@ -13,12 +13,12 @@ Description: process_manager
 """
 
 import sys
-sys.path.append("lib/col_check/")
-sys.path.append("lib/join_check/")
-sys.path.append("lib/preprocess/")
+sys.path.append("script/lib/col_check/")
+sys.path.append("script/lib/join_check/")
+sys.path.append("script/lib/preprocess/")
 
 from factory import FactoryBase 
-
+from factory import CreateObjError
 
 
 class ProcesserManagerInitError(Exception):

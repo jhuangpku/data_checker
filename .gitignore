@@ -22,3 +22,13 @@ script/tmp
 *.status
 
 *.task
+
+data/a.data.gbk
+
+data/a.data.gbk
+
+data/a.data.utf8
+
+*.gbk
+
+data/a.data.utf8

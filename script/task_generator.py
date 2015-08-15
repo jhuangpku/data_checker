@@ -96,6 +96,9 @@ def str_handler(l):
         elif key == "ratio":
             value = float(value)
             dic[key] = value
+        elif key == "args":
+            values = value.split(",")
+            dic[key] = values
         else:
             values = value.split(",")
             if len(values) == 1:
