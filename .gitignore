@@ -1,5 +1,5 @@
 
-script/bak/data_sampler_manager.py
+script/bak/*
 
 *.pyc
 
@@ -32,3 +32,13 @@ data/a.data.utf8
 *.gbk
 
 data/a.data.utf8
+
+data/a.data.gbk
+
+*.task
+
+status_log/command
+
+status_log/command
+
+*.gbk
