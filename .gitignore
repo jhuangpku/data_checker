@@ -14,3 +14,11 @@ script/bak/sample_data.py
 script/tmp
 
 *.swp
+
+*.log
+
+*.wf
+
+*.status
+
+*.task

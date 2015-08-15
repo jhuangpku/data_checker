@@ -12,7 +12,7 @@ Date: 2015/08/07 17:45:36
 Description: data sampler main function
 """
 import sys
-sys.path.append("util")
+sys.path.append("script/util")
 import ConfigParser
 import getopt 
 import logging
@@ -54,10 +54,11 @@ def main(config_file, task_file, command, status_file):
     # init status_file 
     if status_file == "":
         status_file = config.get("data_sampler", "status_file")
-    
+   
+    status_code = config.get("data_sampler", "status_code")
     # init DataSampler
     try:
-        data_sampler = DataSamplerManager(task_file, command, status_file)
+        data_sampler = DataSamplerManager(task_file, command, status_file, status_code)
     except TaskManagerInitError as e:
         logging.fatal("Init data sampler failed because of [%s], task_file [%s]\
                       command [%s], status_file [%s]" % (e, task_file, command, status_file))

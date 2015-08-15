@@ -13,7 +13,7 @@ Description:table checker main function
 """
 
 import sys
-sys.path.append("util")
+sys.path.append("script/util")
 import ConfigParser
 import getopt 
 import logging 
@@ -56,10 +56,10 @@ def main(config_file, task_file, command, status_file):
     # init status_file 
     if status_file == "":
         status_file = config.get("table_checker", "status_file")
-    
+    status_code = config.get("table_checker", "status_code") 
     # init table_checker
     try:
-        table_checker = TableCheckerManager(task_file, command, status_file)
+        table_checker = TableCheckerManager(task_file, command, status_file, status_code)
     except TaskManagerInitError as e:
         logging.fatal("Init table checker failed because of [%s], task_file [%s]\
                       command [%s], status_file [%s]" % (e, task_file, command, status_file))

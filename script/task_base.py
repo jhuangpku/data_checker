@@ -111,7 +111,7 @@ class Field(object):
     
     def get_process_name(self):
         """ get process_name """
-        if self.processs_name is not None:
+        if self.process_name is not None:
             return ["preprocess", self.process_name, self.process_args]
         else:
             return None
@@ -131,7 +131,6 @@ class StatusInfo(object):
         self.expect_fail_cnt = 0
         self.fail_info = [] # fail reason, fail line 
 
-
     def __str__(self):
         """
         str 
@@ -140,7 +139,7 @@ class StatusInfo(object):
         if self.check_fail_cnt == 0:
             str_list.append("Check task [%s] successful" % (self.check_name))
         else:
-            str_list.append("Check task [%s] failed") % (self.check_name) 
+            str_list.append("Check task [%s] failed" % (self.check_name)) 
         str_list.append("Check [%d] lines, failed [%d] lines, expect failed [%d] lines" \
                         % (self.check_cnt, self.check_fail_cnt, self.expect_fail_cnt))
         str_list.append("Top Failed lines:")
@@ -157,7 +156,6 @@ class TaskBase(object):
         Args: 
             line: task command line 
         """
-        #print line
         line = line.rstrip("\n")
         
         try:
@@ -261,7 +259,7 @@ class TaskBase(object):
     
     
     
-    def excute(self, checker_manager):
+    def excute(self, process_manager):
         """ excute the task 
         Args: 
             checker_manager: manager which manage check function
@@ -288,7 +286,7 @@ class TaskBase(object):
             str_list.append("Detail Info:")
             for status_info in self._status_infos:
                 str_list.append("%s" % (status_info))
-        file_handler.write("%s" % ("\n".join(str_list)).encode(encode)) 
+        file_handler.write("%s\n" % ("\n".join(str_list)).encode(encode)) 
         return 0        
     
     def get_process_name(self):

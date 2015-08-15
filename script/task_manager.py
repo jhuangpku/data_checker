@@ -12,7 +12,8 @@ Date: 2015/08/11 15:43:45
 Description: task manager class
 """
 import sys
-sys.path.append("util")
+import logging
+sys.path.append("script/util")
 
 import log
 
@@ -27,77 +28,6 @@ from table_join_checker_task import TableJoinCheckerTask
 
 class TaskManagerInitError(Exception):
     """ init TaskManager error """
-
-
-class DataSamplerManager(TaskManagerBase):
-    "manager for data sampler"
-    def _get_tasks(self):
-        """
-        init all task according to self._commands
-        
-        return 
-            [task]
-        
-        Exception:
-            TaskInitError
-        """
-        tasks = []
-        for command in self._commands:
-            try:
-                task = DataSamplerTask(command)
-            except TaskInitError as e:
-                logging.warning("Init task with command [%s] failed because of [%s]" % (command, e))
-                raise e
-            logging.info("Init task with command [%s] successful" % (command))
-            tasks.append(task)
-        return tasks    
-    
-class TableCheckerManager(TaskManagerBase):
-    "manager for table checker"
-    def _get_tasks(self):
-        """
-        init all task according to self._commands
-        
-        return 
-            [task]
-        
-        Exception:
-            TaskInitError
-        """
-        tasks = []
-        for command in self._commands:
-            try:
-                task = TableCheckerTask(command)
-            except TaskInitError as e:
-                logging.warning("Init task with command [%s] failed because of [%s]" % (command, e))
-                raise e
-            logging.info("Init task with command [%s] successful" % (command))
-            tasks.append(task)
-        return tasks
-       
-class TableJoinCheckerManager(TaskManagerBase):
-    "manager for table checker"
-    def _get_tasks(self):
-        """
-        init all task according to self._commands
-        
-        return 
-            [task]
-        
-        Exception:
-            TaskInitError
-        """
-        tasks = []
-        for command in self._commands:
-            try:
-                task = TableJoinCheckerTask(command)
-            except TaskInitError as e:
-                logging.warning("Init task with command [%s] failed because of [%s]" % (command, e))
-                raise e
-            logging.info("Init task with command [%s] successful" % (command))
-            tasks.append(task)
-        return task
-
 
 class TaskManagerBase(object):
     """task manager base"""
@@ -180,7 +110,7 @@ class TaskManagerBase(object):
         
         for (module, class_name, args) in process_names:
             try:
-                class_obj = self._process_manager.init_class(module, class_name)
+                class_obj = process_manager.init_class(module, class_name)
             except ProcesserManagerInitError as e:
                 logging.warning("Init class_obj [%s] module[%s] failed" % (class_name, module))
                 raise e
@@ -215,7 +145,7 @@ class TaskManagerBase(object):
                 ret = 1
                 continue    
             task.write_status(self._status_file, self._status_encode)
-            logging.info("Excute task [%s] successful" % (task._task_name)
+            logging.info("Excute task [%s] successful" % (task._task_name))
         return ret
 
 
@@ -226,5 +156,77 @@ class TaskManagerBase(object):
         for t in self._tasks:
             del t
         del self._process_manager
+
+
+
+class DataSamplerManager(TaskManagerBase):
+    "manager for data sampler"
+    def _get_tasks(self):
+        """
+        init all task according to self._commands
+        
+        return 
+            [task]
+        
+        Exception:
+            TaskInitError
+        """
+        tasks = []
+        for command in self._commands:
+            try:
+                task = DataSamplerTask(command)
+            except TaskInitError as e:
+                logging.warning("Init task with command [%s] failed because of [%s]" % (command, e))
+                raise e
+            logging.info("Init task with command [%s] successful" % (command))
+            tasks.append(task)
+        return tasks    
+    
+class TableCheckerManager(TaskManagerBase):
+    "manager for table checker"
+    def _get_tasks(self):
+        """
+        init all task according to self._commands
+        
+        return 
+            [task]
+        
+        Exception:
+            TaskInitError
+        """
+        tasks = []
+        for command in self._commands:
+            try:
+                task = TableCheckerTask(command)
+            except TaskInitError as e:
+                logging.warning("Init task with command [%s] failed because of [%s]" % (command, e))
+                raise e
+            logging.info("Init task with command [%s] successful" % (command))
+            tasks.append(task)
+        return tasks
+       
+class TableJoinCheckerManager(TaskManagerBase):
+    "manager for table checker"
+    def _get_tasks(self):
+        """
+        init all task according to self._commands
+        
+        return 
+            [task]
+        
+        Exception:
+            TaskInitError
+        """
+        tasks = []
+        for command in self._commands:
+            try:
+                task = TableJoinCheckerTask(command)
+            except TaskInitError as e:
+                logging.warning("Init task with command [%s] failed because of [%s]" % (command, e))
+                raise e
+            logging.info("Init task with command [%s] successful" % (command))
+            tasks.append(task)
+        return task
+
 
 
