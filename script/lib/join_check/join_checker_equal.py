@@ -43,8 +43,6 @@ class EqualJoinChecker(JoinCheckerBase):
         Return:
             match_key: if match return key of table1, else, return None
         
-        Exception:
-            ColCheckerError
         """
         if key in dic:
             return key

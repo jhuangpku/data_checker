@@ -312,7 +312,11 @@ def get_data_sampler_commands(config):
                 info_dics[input_file] = len(new_json_dics) - 1 
         # not hdfs
         else:
-            for f in glob.glob(input_file):
+            f_list = glob.glob(input_file)
+            if len(f_list) == 0:
+                logging.warning("No file match pattern [%s]" % (input_file))
+                return None
+            for f in f_list:
                 new_json_dic = copy.deepcopy(json_dic)
                 new_json_dic["input_file"] = f
                 new_json_dic["output_file"] = "%s/%s.sample" % (new_json_dic["output_dir"], f.split("/")[-1])

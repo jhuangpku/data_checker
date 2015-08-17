@@ -12,13 +12,13 @@ Date: 2015/08/05 14:49:26
 Description:join checker base class
 """
 
-class JoinCheckerError(Exception):
-    """colchecker error"""
-    def __init__(self, msg):
-        self.msg = msg
-
-    def __str__(self):
-        return self.msg
+#class JoinCheckerError(Exception):
+#    """colchecker error"""
+#    def __init__(self, msg):
+#        self.msg = msg
+#
+#    def __str__(self):
+#        return self.msg
 
 
 class JoinCheckerBase(object):
@@ -30,7 +30,7 @@ class JoinCheckerBase(object):
     def check_args(self, args):
         """
         Args:
-            args: other arguments 
+            args: list type, args for join checker
 
         Return:
             0: success 
@@ -39,19 +39,17 @@ class JoinCheckerBase(object):
         return 0
     
     
-    def check_join(self, values1, values2, args):
+    def check(self, dic, key, args):
         """
         Args:
-            values1: depend col value list in table1
-            values2: depend col value list in table2
-            args: other args, the same with check_args 
+            dic: dic type, every key is a tuple, it is the table1 key dic
+            key: tuple type, one key of table2
+            args: list type, other args, the same with check_args 
 
         Return:
-            True: can match
-            False: not match
-        Exception:
-            ColCheckerError
+            match_key: if match return key of table1, else, return None
+        
         """
-        pass
+        return None
 
 

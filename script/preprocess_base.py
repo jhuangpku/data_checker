@@ -12,18 +12,21 @@ Date: 2015/08/05 14:24:49
 Description: base for preprocess
 """
 
-class PreprocessError(Exception):
-    """preprocess error"""
-    def __init__(self, msg):
-        self.msg = msg
-
-    def __str__(self):
-        return self.msg
+#class PreprocessError(Exception):
+#    """preprocess error"""
+#    def __init__(self, msg):
+#        self.msg = msg
+#
+#    def __str__(self):
+#        return self.msg
 
 
 
 class PreprocessBase(object):
-    """ base for all preprocess class"""
+    """ base for all preprocess class
+        try preprocess value into new value according to preprocess_method
+        otherwise keep the original value
+    """
     def __init__(self):
         """init"""
         pass
@@ -31,7 +34,7 @@ class PreprocessBase(object):
     def check_args(self, args):
         """
         Args:
-            args for preprocess 
+            args: list type, args for preprocess 
 
         Return:
             0: success 
@@ -39,17 +42,15 @@ class PreprocessBase(object):
         """
         return 0
 
-    def preprocess(self, values, args):
+    def preprocess(self, value, args):
         """
         Args:
-            values: depend col value list
+            value: depend col value, not a list !!!
             args: other args, the same with check_args 
 
         Return:
-            value
+            value: not a list !!!
         
-        Exception:
-            PreprocessError
         """
         pass
 

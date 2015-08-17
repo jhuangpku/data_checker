@@ -6,17 +6,19 @@
 # 
 ########################################################################
 """
-File: preprocess_trim.py
+File: preprocess_time.py
 Author: huangjing(huangjing@4paradigm.com)
-Date: 2015/08/17 08:16:52
-Description:trim unuseful character
+Date: 2015/08/17 11:29:02
+Description: time preprocess
 """
+
 import sys
+import time
 
 from preprocess_base import PreprocessBase
 
 
-class PreprocessTrim(PreprocessBase):
+class PreprocessTime(PreprocessBase):
     """ trim unuseful character """
     def __init__(self):
         """init"""
@@ -45,10 +47,16 @@ class PreprocessTrim(PreprocessBase):
         Exception:
             PreprocessError
         """
-        if not isinstance(values, list):
-            values = [values]
-        
-        return [v.strip('\n\r" ') for v in values]
+        time_format = args[0]   
+        if isinstance(values, list):
+            value = values[0]
+        else:
+            value = values
+        try:
+            return time.strftime("%Y-%m-%d %H:%M:%S", \
+                                 time.strptime(value, time_format))
+        except ValueError:
+            return [value]
 
 
 

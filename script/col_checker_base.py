@@ -12,14 +12,14 @@ Date: 2015/08/05 14:40:58
 Description:
 """
 
-class ColCheckerError(Exception):
-    """colchecker error"""
-    def __init__(self, msg):
-        self.msg = msg
-
-    def __str__(self):
-        return self.msg
-
+#class ColCheckerError(Exception):
+#    """colchecker error"""
+#    def __init__(self, msg):
+#        self.msg = msg
+#
+#    def __str__(self):
+#        return self.msg
+#
 
 class ColCheckerBase(object):
     """ base for all colchecker class"""
@@ -30,7 +30,7 @@ class ColCheckerBase(object):
     def check_args(self, args):
         """
         Args:
-            args for col_checker 
+            args: list type, args for col_checker
 
         Return:
             0: success 
@@ -41,15 +41,12 @@ class ColCheckerBase(object):
     def check(self, values, args):
         """
         Args:
-            values: depend col value list
-            args: other args, the same with check_args 
+            values: list type, depend col value list
+            args: list type, other args, the same with check_args 
 
         Return:
             True: valid
             False: not valid
-        
-        Exception:
-            ColCheckerError
         """
-        pass
+        return True
 
