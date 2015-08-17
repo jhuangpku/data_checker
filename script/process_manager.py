@@ -25,14 +25,19 @@ class ProcesserManagerInitError(Exception):
     """init error """
     def __init__(self, module, class_name, reason):
         self.msg = "Can not Init class_name [%s] of module [%s] because of [%s]" \
-            % (module, class_name, reason)
+            % (class_name, module, reason)
+
+    def __str__(self):
+        return self.msg
 
 class ProcesserManagerLocateError(Exception):
     """ locate error """
     def __init__(self, module, class_name, reason):
         self.msg = "Can not Locate class_name [%s] of module [%s] because of [%s]" \
-            % (module, class_name, reason)
-
+            % (class_name, module, reason)
+    
+    def __str__(self):
+        return self.msg
 
 class ProcesserManager(object):
     """ process manager """

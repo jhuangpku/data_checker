@@ -22,6 +22,7 @@ from task_base import StatusInfo
 from task_base import TaskInitError
 from task_base import TaskExcuteError
 
+from process_manager import ProcesserManagerLocateError
 
 class TableJoinCheckerTaskInitError(TaskInitError):
     """Init error for TableJoinCheckerTask"""
@@ -104,10 +105,9 @@ class TableJoinCheckerTask(TaskBase):
         """
         self._time = time.strftime("%Y%m%d %H:%M:%S", time.localtime())
         try:
-            join_table_checker = process_manager.locate("join_table_checker", self._join_checker) 
+            join_table_checker = process_manager.locate("join_checker", self._join_checker) 
         except ProcesserManagerLocateError as e:
             raise TableJoinCheckerTaskExcuteError("%s" % (e))
-        
         file_dic = {}
         try:
             with open(self._files[0], "r") as f:
@@ -119,6 +119,7 @@ class TableJoinCheckerTask(TaskBase):
                     file_dic[file_dic_key] = 0
         except IOError as e:
             raise TableJoinCheckerTaskExcuteError("%s" % (e))
+       
 
         try:
             with open(self._files[1], "r") as f:
@@ -129,13 +130,14 @@ class TableJoinCheckerTask(TaskBase):
                     except ProcesserManagerLocateError as e:
                         file_dic = {}
                         raise TableJoinCheckerTaskExcuteError("%s" % (e))
-                    match_key = join_table_checker.check(file_dic, file_dic_key, self._join_checker_args) 
+                    match_key = join_table_checker.check(file_dic, tuple(file_dic_key), self._join_checker_args) 
                     if match_key is not None:
-                        file_dic_key[match_key] = 1
+                        file_dic[match_key] = 1
         except IOError as e:
             file_dic = {}
             raise TableJoinCheckerTaskExcuteError("%s" % (e))
         
+
         status_info = self._status_infos[0]
         for key in file_dic:
             status_info.check_cnt += 1
@@ -145,7 +147,7 @@ class TableJoinCheckerTask(TaskBase):
                     status_info.fail_info.append(["Can not find match key", key])
         file_dic = {} 
         # according to sample_ratio to see if it is a valid match 
-        status_info.expect_fail_cnt = status_info.check_cnt * (1 - self._ratio[1])
+        status_info.expect_fail_cnt = status_info.check_cnt * (1 - self._ratios[1])
         self._if_success = True 
         return 0
     

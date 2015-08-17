@@ -22,7 +22,7 @@ from task_base import TaskBase
 from task_base import StatusInfo
 from task_base import TaskInitError
 from task_base import TaskExcuteError
-
+from process_manager import ProcesserManagerLocateError 
 
 class TableCheckerTaskInitError(TaskInitError):
     """Init error for TableCheckerTask """
@@ -74,7 +74,7 @@ class TableCheckerSubTask(object):
         except ProcesserManagerLocateError as e:
             raise e
         try:
-            values = self.fields.get_values()
+            values = self.fields.get_values(process_manager, cols)
         except ProcesserManagerLocateError as e:
             raise e
         return table_checker.check(values, self.args)

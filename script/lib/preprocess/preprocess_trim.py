@@ -6,23 +6,18 @@
 # 
 ########################################################################
 """
-File: col_checker_base.py
+File: preprocess_trim.py
 Author: huangjing(huangjing@4paradigm.com)
-Date: 2015/08/05 14:40:58
-Description:
+Date: 2015/08/17 08:16:52
+Description:trim unuseful character
 """
+import sys
 
-class ColCheckerError(Exception):
-    """colchecker error"""
-    def __init__(self, msg):
-        self.msg = msg
-
-    def __str__(self):
-        return self.msg
+from preprocess_base import PreprocessTrim
 
 
-class ColCheckerBase(object):
-    """ base for all colchecker class"""
+class PreprocessTrim(PreprocessBase):
+    """ trim unuseful character """
     def __init__(self):
         """init"""
         pass
@@ -30,26 +25,31 @@ class ColCheckerBase(object):
     def check_args(self, args):
         """
         Args:
-            args for col_checker 
+            args for preprocess 
 
         Return:
             0: success 
             1: fail
         """
         return 0
-    
-    def check(self, values, args):
+
+    def preprocess(self, values, args):
         """
         Args:
             values: depend col value list
             args: other args, the same with check_args 
 
         Return:
-            True: valid
-            False: not valid
+            value
         
         Exception:
-            ColCheckerError
+            PreprocessError
         """
-        pass
+        if not isinstance(values, list):
+            values = [values]
+        
+        return [v.strip('\n\r" ') for v in values]
+
+
+
 

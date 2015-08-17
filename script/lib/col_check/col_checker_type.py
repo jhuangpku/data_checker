@@ -38,7 +38,7 @@ class ColTypeChecker(object):
                 return 1
         return 0
 
-    def check_col(self, values, args):
+    def check(self, values, args):
         """
             Args:
             args:
@@ -47,6 +47,6 @@ class ColTypeChecker(object):
             value = values[0]
         else:
             value = values
-        types = (self._dict[t] for t in args)
-        return isinstance(value, types)
+        types = [self._dict[t] for t in args]
+        return isinstance(value, tuple(types))
 

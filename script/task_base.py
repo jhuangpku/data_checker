@@ -50,7 +50,7 @@ class FieldList(object):
         """
         values = []
         for field in self._fields:
-            values.extend(field.get_values())
+            values.extend(field.get_values(process_manager, cols))
         return values
 
 class Field(object):
@@ -281,6 +281,7 @@ class TaskBase(object):
             0: success 
         """
         str_list = []
+        print self._if_success
         if self._if_success is False:
             str_list.append("[%s] Excute task [%s] failed" % (self._time, self._task_name))
         else:

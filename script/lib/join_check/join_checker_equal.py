@@ -6,23 +6,18 @@
 # 
 ########################################################################
 """
-File: col_checker_base.py
+File: join_checker_equal.py
 Author: huangjing(huangjing@4paradigm.com)
-Date: 2015/08/05 14:40:58
-Description:
+Date: 2015/08/17 08:49:42
+Description: equal checker
 """
 
-class ColCheckerError(Exception):
-    """colchecker error"""
-    def __init__(self, msg):
-        self.msg = msg
+import sys
 
-    def __str__(self):
-        return self.msg
+from join_checker_base import JoinCheckerBase
 
-
-class ColCheckerBase(object):
-    """ base for all colchecker class"""
+class EqualJoinChecker(JoinCheckerBase):
+    """ base for all joinchecker class"""
     def __init__(self):
         """init"""
         pass
@@ -30,7 +25,7 @@ class ColCheckerBase(object):
     def check_args(self, args):
         """
         Args:
-            args for col_checker 
+            args: other arguments 
 
         Return:
             0: success 
@@ -38,18 +33,22 @@ class ColCheckerBase(object):
         """
         return 0
     
-    def check(self, values, args):
+    
+    def check(self, dic, key, args):
         """
         Args:
-            values: depend col value list
-            args: other args, the same with check_args 
-
+            dic: table1 key dic
+            key: one key of table2
+        
         Return:
-            True: valid
-            False: not valid
+            match_key: if match return key of table1, else, return None
         
         Exception:
             ColCheckerError
         """
-        pass
+        if key in dic:
+            return key
+        else:
+            return None
+
 

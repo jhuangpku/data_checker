@@ -166,13 +166,15 @@ class DataSamplerTask(TaskBase):
                     status.check_cnt += 1
                     r = random.random()
                     if r < self._ratio:
-                        l = l.replace(u"\n", u"\\n")
+                        last_line = last_line.replace(u"\n", u"\\n")
                         f_out.write("%s\n" % (last_line.encode(self._encode)))
                     else:
                         status.check_fail_cnt += 1
         except IOError as e:
             f_out.close()
             raise DataSamplerTaskExcuteError("%s" % (e))
+        #print (1 - self._ratio) * status.check_cnt
+        #print int((1 - self._ratio) * status.check_cnt)
         status.expect_fail_cnt = int(status.check_cnt * (1 - self._ratio))
         self._if_success = True
         f_out.close()
