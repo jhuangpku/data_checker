@@ -65,6 +65,20 @@ G_DEFAULT_ARGS = {
 #
 #    def command_str(self):
 #        return self._command_prefix + '"' + json.dump(self._json_dic) + '"'
+
+def parse_escape_char(value):
+    escape_chars = {
+        u"\\n":u"\n",
+        u"\\t":u"\t",
+        u"\\001":u"\001",
+        u"\\002":u"\002",
+    }
+    for e in escape_chars:
+        c = escape_chars[e]
+        value = value.replace(e, c)
+    
+    return value
+
 def get_fields(value):
     """get fields list"""
     field_list = []
@@ -87,6 +101,7 @@ def str_handler(l):
     dic = {}
     for col in cols:
         key, value = col.split("=")
+        value = parse_escape_char(value)
         if key == "fields":
             fields_list = get_fields(value)
             dic[key] = fields_list
@@ -99,11 +114,15 @@ def str_handler(l):
         elif key == "args":
             values = value.split(",")
             dic[key] = values
+        elif key == "sep":
+            value = parse_escape_char(value)
+            dic[key] = value
         else:
             values = value.split(",")
             if len(values) == 1:
                 values = values[0]
             dic[key] = values
+    
     return dic
 
 

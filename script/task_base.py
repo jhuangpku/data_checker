@@ -136,11 +136,11 @@ class StatusInfo(object):
         str 
         """
         str_list = []
-        if self.check_fail_cnt == 0:
-            str_list.append("Check task [%s] successful" % (self.check_name))
-        else:
-            str_list.append("Check task [%s] failed" % (self.check_name)) 
-        str_list.append("Detail info:")
+        #if self.check_fail_cnt == 0:
+        #    str_list.append("Check task [%s] successful" % (self.check_name))
+        #else:
+        #    str_list.append("Check task [%s] failed" % (self.check_name)) 
+        str_list.append("Check task [%s] Detail info:" % (self.check_name))
         str_list.append("------Check [%d] lines, failed [%d] lines, expect failed [%d] lines" \
                         % (self.check_cnt, self.check_fail_cnt, self.expect_fail_cnt))
         if len(self.fail_info) != 0:
@@ -281,7 +281,6 @@ class TaskBase(object):
             0: success 
         """
         str_list = []
-        print self._if_success
         if self._if_success is False:
             str_list.append("[%s] Excute task [%s] failed" % (self._time, self._task_name))
         else:
