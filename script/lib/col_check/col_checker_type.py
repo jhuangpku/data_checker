@@ -13,7 +13,7 @@ Description:
 """
 
 import sys
-
+sys.path.append("../../")
 from col_checker_base import ColCheckerBase
 
 
@@ -48,5 +48,24 @@ class ColTypeChecker(object):
         else:
             value = values
         types = [self._dict[t] for t in args]
-        return isinstance(value, tuple(types))
+        for t in types:
+            try:
+                t(value)
+                if value.strip() == value:
+                    return True
+            except ValueError:
+                continue
+        
+        return False
 
+
+def test():
+    """ test """
+    ck = ColTypeChecker()
+    value = "  3  "
+    args = ["int"]
+    print ck.check(value, args)
+
+
+if __name__ == "__main__":
+    test()

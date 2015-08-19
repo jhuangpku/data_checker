@@ -13,6 +13,7 @@ Description:time check
 """
 
 import sys
+sys.path.append("../../")
 import time
 from col_checker_base import ColCheckerBase
 
@@ -41,8 +42,20 @@ class ColTimeChecker(object):
             value = values
         
         try:
-            time.strftime("%Y-%m-%d %M:%H:%S" time.strptime(value, time_format))
+            time.strftime("%Y-%m-%d %M:%H:%S", (time.strptime(value, time_format)))
         except ValueError:
             return False
 
         return True
+
+
+def test():
+    """ test for ColTimeChecker """
+    ck = ColTimeChecker()
+    arg = ["%Y%m%d"]
+    value = "20150320"
+    print ck.check(value, arg)
+
+
+if __name__ == "__main__":
+    test()

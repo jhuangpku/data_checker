@@ -11,8 +11,12 @@ Author: huangjing(huangjing@4paradigm.com)
 Date: 2015/08/05 14:14:57
 Description: task基类
 """
+import sys
+
 import time
 import json
+from process_manager import ProcesserManagerLocateError
+
 
 class TaskInitError(Exception):
     """init task error"""
@@ -80,7 +84,7 @@ class Field(object):
 
         if "processer" in dic:
             self.process_name = dic["processer"]
-            if not isinstance(self.process_name, unicode):
+            if not isinstance(self.process_name, (unicode, str)):
                 raise TypeError("Invalid process_class, it should be string")
 
     def get_values(self, process_manager, cols):
@@ -100,10 +104,10 @@ class Field(object):
         
         if self.process_name is not None:
             try:
-                process_class = process_manager.locate("preprocess", self.process_name)
+                process_class = process_manager.locate("preprocesser", self.process_name)
             except ProcesserManagerLocateError as e:
                 raise e
-            value = process_class(value, self.process_args)
+            value = process_class.preprocess(value, self.process_args)
         if isinstance(value, list):
             return value
         else:
@@ -112,7 +116,7 @@ class Field(object):
     def get_process_name(self):
         """ get process_name """
         if self.process_name is not None:
-            return ["preprocess", self.process_name, self.process_args]
+            return ["preprocesser", self.process_name, self.process_args]
         else:
             return None
 

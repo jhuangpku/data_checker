@@ -136,8 +136,11 @@ class DataSamplerTask(TaskBase):
             DataSamplerTaskExcuteError
         """
         self._time = time.strftime("%Y%m%d %H:%M:%S", time.localtime())
-        f_out = open(self._f_out_name, "w")
         status = self._status_infos[0]
+        try:
+            f_out = open(self._f_out_name, "w")
+        except IOError as e:
+            raise DataSamplerTaskExcuteError("%s" % (e))
         
         #f = sys.stdin
         try: 

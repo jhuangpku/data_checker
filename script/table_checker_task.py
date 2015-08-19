@@ -24,6 +24,9 @@ from task_base import TaskInitError
 from task_base import TaskExcuteError
 from process_manager import ProcesserManagerLocateError 
 
+
+import traceback
+
 class TableCheckerTaskInitError(TaskInitError):
     """Init error for TableCheckerTask """
 
@@ -37,9 +40,10 @@ class TableCheckerSubTask(object):
         """init sub task
         
         Args:
-            conf_dic: {name:value}, value is a list of list [[a,b,c],[b,c],[a]]
-            task_name: task_name, str
-        
+            task_name: str, task name
+            checker: str, checker name
+            args: list, arguments for checker 
+            fields: fieldList
         """
         self.task_name = task_name
         self.col_checker = checker
@@ -76,7 +80,9 @@ class TableCheckerSubTask(object):
         try:
             values = self.fields.get_values(process_manager, cols)
         except ProcesserManagerLocateError as e:
+            #traceback.print_exc()
             raise e
+        #print values, self.args, table_checker.check(values, self.args)
         return table_checker.check(values, self.args)
         
 
@@ -159,7 +165,7 @@ class TableCheckerTask(TaskBase):
                     if len(cols) != self._col_cnt:
                         # append this line into debug info 
                         status_info.check_fail_cnt += 1
-                        if len(status_info.check_fail_cnt < 10):
+                        if status_info.check_fail_cnt < 10:
                             status_info.fail_info.append(["col_cnt does not match \
                                                     expect [%d] actual [%d]" % \
                                                          (self._col_cnt, len(cols)), \
@@ -168,12 +174,13 @@ class TableCheckerTask(TaskBase):
                         try:
                             ret = sub_task.excute(process_manager, cols)
                         except ProcesserManagerLocateError as e:
+                            #traceback.print_exc()
                             raise TableCheckerTaskExcuteError("%s" % (e))
                         status_info = self._status_infos[index + 1]
                         status_info.check_cnt += 1
-                        if ret != 0:
+                        if ret is not  True:
                             status_info.check_fail_cnt += 1
-                            if len(status_info.check_fail_cnt < 10):
+                            if status_info.check_fail_cnt < 10:
                                 status_info.fail_info.append([sub_task.task_name, line.rstrip("\n")])
                     
         except IOError as e:

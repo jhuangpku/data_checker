@@ -22,7 +22,15 @@ class PreprocessTime(PreprocessBase):
     """ trim unuseful character """
     def __init__(self):
         """init"""
-        pass
+        self._t_formats = []
+        p1 = ["%Y", "%m", "%d"]
+        p2 = ["%H", "%M", "%S"]
+        sep = [":", ",", " "]
+        for s1 in sep:
+            for s2 in sep:
+                for t in sep:
+                    self._t_formats.append(s1.join(p1) + t + s2.join(p2))
+
 
     def check_args(self, args):
         """
@@ -47,16 +55,21 @@ class PreprocessTime(PreprocessBase):
         Exception:
             PreprocessError
         """
-        time_format = args[0]   
         if isinstance(values, list):
             value = values[0]
         else:
             value = values
-        try:
-            return time.strftime("%Y-%m-%d %H:%M:%S", \
-                                 time.strptime(value, time_format))
-        except ValueError:
-            return [value]
+        t_formats = self._t_formats
+        if args is not None:
+            t_formats.extend(args)
+        for t_format in t_formats:
+            try:
+                return [time.strftime("%Y-%m-%d %H:%M:%S", \
+                                 time.strptime(value, t_format))]
+            except ValueError:
+                continue
+
+        return [value]
 
 
 
