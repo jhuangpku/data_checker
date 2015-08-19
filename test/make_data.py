@@ -113,7 +113,18 @@ def gen_table_join_checker_data(file_dir):
     """
     make data for table join checker
     """
-    pass
+    file1 = file_dir + "file1.in"
+    f1 = open(file1, "w")
+    for i in [1, 2, 2, 3, 4, 5, 6, 7]:
+        f1.write("%d\n" % (i))
+    f1.close()
+    
+    file2 = file_dir + "file2.in"
+    f2 = open(file2, "w")
+    for i in [1, 2, 5, 7, 9, 9]:
+        f2.write("%d\n" % (i))
+    f2.close()
+    
 
 
 if __name__ == "__main__":

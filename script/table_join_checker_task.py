@@ -54,7 +54,7 @@ class TableJoinCheckerTask(TaskBase):
         # 2. get info from task conf
         try:
             self._join_checker = self.get_attribute("join_checker", self._json, unicode)
-            self._join_checker_args = self.get_attribute("join_checker_args", self._json, "args")
+            self._join_checker_args = self.get_attribute("args", self._json, "args")
             file_dics = self.get_attribute("files", self._json, list)
         except (KeyError, ValueError, TypeError) as e:
             raise TableJoinCheckerTaskInitError("%s" % (e))
